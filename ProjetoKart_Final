@@ -7,7 +7,7 @@
 programa {
 	
 	funcao escreva_menu(){
-	caracter opcao
+	caracter opcao = ' '
 	logico menu = verdadeiro
 	
 	enquanto(menu == verdadeiro){
@@ -90,15 +90,15 @@ programa {
 		        //funcao
 		     pare
 		
-		     caso '1':
+		     caso 'a':
 		        //funcao
 		     pare
 		
-		     caso '1':
+		     caso 'b':
 		        //funcao
 		     pare
 		
-		     caso '1':
+		     caso 'c':
 		        //funcao
 		     pare
 		}
