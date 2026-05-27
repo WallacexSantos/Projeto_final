@@ -7,11 +7,58 @@
 programa {
 	
 	funcao escreva_menu(){
-	caracter opcao = ' '
+	cadeia opcao = " "
 	logico menu = verdadeiro
 	
 	enquanto(menu == verdadeiro){
-	    	escreva("========================================\n")
+
+          pagina_1()
+    			leia(opcao)
+    			
+    		limpa()
+    
+	se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
+		menu = falso
+     }
+     
+	se (menu == verdadeiro){
+
+      pagina_2()
+			leia(opcao)
+			
+		limpa()
+		
+	se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
+      menu = falso
+      se(opcao =="1"){
+        opcao = "7"
+      }
+      senao se(opcao == "2"){
+        opcao = "8"
+      }
+      senao se(opcao == "3"){
+        opcao = "9"
+      }
+      senao se(opcao == "4"){
+        opcao = "10"
+      }
+      senao se(opcao == "5"){
+        opcao = "11"
+      }
+      senao{
+        opcao = "12"
+      }
+	  }
+	 }
+	}
+ 
+
+	hub(opcao)
+	}
+
+  funcao pagina_1(){
+
+    escreva("========================================\n")
 		escreva("* [1]  - Cadastrar um Kart\n")
 		escreva("* [2]  - Listar Karts disponíveis\n")
 		escreva("* [3]  - Listar Karts locados\n")
@@ -20,16 +67,12 @@ programa {
 		escreva("* [6]  - Alugar um Kart\n")
 		escreva("* [0]  - |>> Próxima Página |>>\n")
 		escreva("========================================\n")
-    			leia(opcao)
-    			
-    		limpa()
-    
-	se(opcao == '1' ou opcao == '2' ou opcao == '3' ou opcao == '4' ou opcao == '5' ou opcao == '6'){
-		menu = falso
-     }
-     
-	se (menu == verdadeiro){
-		escreva("========================================\n")
+
+  }
+
+  funcao pagina_2(){
+
+    escreva("========================================\n")
 		escreva("* [1]  - Devolver um Kart\n")
 		escreva("* [2]  - Kart que mais gerou ganhos\n")
 		escreva("* [3]  - Receita e lucro do dia, (considerando Karts locados)\n")
@@ -38,29 +81,70 @@ programa {
 		escreva("* [6]  - Sair do programa\n")
 		escreva("* [0]  - <<| Página Anterior <<|\n")
 		escreva("========================================\n")
-			leia(opcao)
-			
-		limpa()
+
+  }
+
+	funcao hub(cadeia opcao){
 		
-	se(opcao == '1' ou opcao == '2' ou opcao == '3' ou opcao == '4' ou opcao == '5' ou opcao == '6'){
-      menu = falso
-	}
-	}
+		escolha(opcao)
+		{
+			  caso "1": 
+            cadastro_kart ()
+		    	pare
+
+		  	caso "2":
+				    //funcao
+			    pare
+
+			  caso "3":
+			    	//funcao
+		    	pare
+
+		     caso "4":
+		        //funcao
+		     pare
+		
+		     caso "5":
+		        //funcao
+		     pare
+		
+		     caso "6":
+		        //funcao
+		     pare
+		
+		     caso "7":
+		        //funcao
+		     pare
+		
+		     caso "8":
+		        //funcao
+		     pare
+		
+		     caso "9":
+		        //funcao
+		     pare
+		
+		     caso "10":
+		        //funcao
+		     pare
+		
+		     caso "11":
+		        //funcao
+		     pare
+		
+		     caso "12":
+		        //funcao
+		     pare
+		}
 	}
 
-	hub(opcao)
-	}
-
-	funcao hub(caracter opcao){
-		cadeia modelo[16], mod
+  funcao cadastro_kart () {
+    cadeia modelo[16], mod
 		inteiro alternativa=0, menu_cor=1, cor, cor2 
 		//A 'cor2' é para a segunda página, previnindo que o usuario na primeira 
 		//pagina digite cor da segunda
 		
-		escolha(opcao)
-		{
-			caso '1': 
-			//Aqui eu uso 'mod' pois ele tem que ser atribuido a um vetor junto a cor, todos os dados do cart tem que estar
+    //Aqui eu uso 'mod' pois ele tem que ser atribuido a um vetor junto a cor, todos os dados do cart tem que estar
 			//em um vetor
 				escreva("Qual o modelo do seu Kart?  ")
 					leia(mod)
@@ -138,56 +222,9 @@ programa {
 
 				}
 			}
-				
-			pare
+  }
 
-			caso '2':
-				//funcao
-			pare
-
-			caso '3':
-				//funcao
-			pare
-
-		     caso '4':
-		        //funcao
-		     pare
-		
-		     caso '5':
-		        //funcao
-		     pare
-		
-		     caso '6':
-		        //funcao
-		     pare
-		
-		     caso '7':
-		        //funcao
-		     pare
-		
-		     caso '8':
-		        //funcao
-		     pare
-		
-		     caso '9':
-		        //funcao
-		     pare
-		
-		     caso 'a':
-		        //funcao
-		     pare
-		
-		     caso 'b':
-		        //funcao
-		     pare
-		
-		     caso 'c':
-		        //funcao
-		     pare
-		}
-	}
-
-	funcao inicio(){
+	funcao inicio() {
 		escreva_menu()
 		
 	}
