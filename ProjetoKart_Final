@@ -3,28 +3,28 @@ programa {
   funcao inteiro menu(inteiro opcao) {
 		
   	faca{
-   	escreva("========================================\n")
-	escreva("* [1]  - Cadastrar um Kart\n")
-     escreva("* [2]  - Listar Karts disponíveis\n")
-	escreva("* [3]  - Listar Karts locados\n")
-	escreva("* [4]  - Listar Karts em manutenção\n")
-     escreva("* [5]  - Atualizar dados do Kart\n")
-     escreva("* [6]  - Alugar um Kart\n")
-     escreva("* [7]  - Devolver um Kart\n")
-     escreva("* [8]  - Kart que mais gerou ganhos\n")
-     escreva("* [9]  - Receita e lucro do dia, (considerando Karts locados)\n")
-     escreva("* [10] - Locação de circuito\n")
-	escreva("* [11] - Atualizar dia\n")
-	escreva("* [12] - Sair do programa\n")
-     escreva("========================================\n")
-     leia(opcao)
-     se(opcao < 1 ou opcao > 12){
-     	escreva("Opcão inválida! ")
-		u.aguarde(1000)
-		limpa()
-     }
-  	} enquanto(opcao < 1 ou opcao > 12)
-
+		escreva("========================================\n")
+		escreva("* [1]  - Cadastrar um Kart\n")
+		escreva("* [2]  - Listar Karts disponíveis\n")
+		escreva("* [3]  - Listar Karts locados\n")
+		escreva("* [4]  - Listar Karts em manutenção\n")
+		escreva("* [5]  - Atualizar dados do Kart\n")
+		escreva("* [6]  - Alugar um Kart\n")
+		escreva("* [7]  - Devolver um Kart\n")
+		escreva("* [8]  - Kart que mais gerou ganhos\n")
+		escreva("* [9]  - Receita e lucro do dia, (considerando Karts locados)\n")
+		escreva("* [10] - Locação de circuito\n")
+		escreva("* [11] - Atualizar dia\n")
+		escreva("* [12] - Sair do programa\n")
+		escreva("========================================\n")
+		leia(opcao)
+     	se(opcao < 1 ou opcao > 12){
+     		escreva("Opcão inválida! ")
+			u.aguarde(1000)
+			limpa()
+     	}
+  		}enquanto(opcao < 1 ou opcao > 12)
+  		
 	retorne opcao
   }
 
