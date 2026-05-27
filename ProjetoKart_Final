@@ -1,72 +1,84 @@
-programa
-{
-	
-	funcao inicio()
-	{
-	inteiro menu=1, opcao=0,opcao2=0
+programa {
+  funcao menu() {
+    	inteiro opcao
 
-	//Até agora só fiz o sistema da troca de páginas. vou ler o
-	//projeto pra ver como faz as outras, ainda nao sei em qual usar função
+   	escreva("========================================\n")
+    escreva("* [1]  - Cadastrar um Kart\n")
+    escreva("* [2]  - Listar Karts disponíveis\n")
+	escreva("* [3]  - Listar Karts locados\n")
+	escreva("* [4]  - Listar Karts em manutenção\n")
+    escreva("* [5]  - Atualizar dados do Kart\n")
+    escreva("* [6]  - Alugar um Kart\n")
+    escreva("* [7]  - Devolver um Kart\n")
+    escreva("* [8]  - Kart que mais gerou ganhos\n")
+    escreva("* [9]  - Receita e lucro do dia, (considerando Karts locados)\n")
+    escreva("* [10] - Locação de circuito\n")
+	escreva("* [11] - Atualizar dia\n")
+	escreva("* [12] - Sair do programa\n")
+    escreva("========================================")
 
-	enquanto(menu==1){
-		menu=0
-		escreva("========================================\n")
-		escreva("* [1]  - Cadastrar um Kart\n")
-		escreva("* [2]  - Listar Karts disponíveis\n")
-		escreva("* [3]  - Listar Karts locados\n")
-		escreva("* [4]  - Listar Karts em manutenção\n")
-		escreva("* [5]  - Atualizar dados do Kart\n")
-		escreva("* [6]  - Alugar um Kart\n")
-		escreva("* [0]  - |>> Próxima Página |>>\n")
-		escreva("========================================\n")
-		escreva("Digite a sua opção:  ")
+      leia(opcao)
+
+      enquanto(opcao < 1 ou opcao > 12)
+		{
+			escreva("\nOpcao invalida")
 			leia(opcao)
+		}
 
-		escolha(opcao){
+		escolha(opcao)
+		{
 			caso 1:
+				//funcao
+			pare
 
 			caso 2:
+				//funcao
+			pare
 
 			caso 3:
+				//funcao
+			pare
 
-			caso 4:
+      caso 4:
+        //funcao
+      pare
 
-			caso 5:
+      caso 5:
+        //funcao
+      pare
 
-			caso 6:
-			
-			caso 0:
-			limpa()
-			escreva("========================================\n")
-			escreva("* [7]  - Devolver um Kart\n")
-			escreva("* [8]  - Kart que mais gerou ganhos\n")
-			escreva("* [9]  - Receita e lucro do dia, (considerando Karts locados)\n")
-			escreva("* [10] - Locação de circuito\n")
-			escreva("* [11] - Atualizar dia\n")
-			escreva("* [12] - Sair do programa\n")
-			escreva("* [0]  - <<| Página Anterior <<|\n")
-			escreva("========================================")
-			escreva("Digite a sua opção:  ")
-				leia(opcao2)
+      caso 6:
+        //funcao
+      pare
 
-				escolha(opcao2){
-					caso 7:
+      caso 7:
+        //funcao
+      pare
 
-					caso 8:
+     caso 8:
+        //funcao
+     pare
 
-					caso 9:
+     caso 9:
+        //funcao
+     pare
 
-					caso 10:
+     caso 10:
+        //funcao
+     pare
 
-					caso 11:
+     caso 11:
+        //funcao
+     pare
 
-					caso 12:
-					
-					caso 0:
-					menu=1
-				}
-		}
-		
-	}
-	}
+     caso 12:
+        //funcao
+     pare
+
+   }
+  }
+
+  funcao inicio() {
+    menu()
+  }
 }
