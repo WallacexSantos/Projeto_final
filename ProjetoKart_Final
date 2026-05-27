@@ -1,8 +1,23 @@
 programa {
-  inclua biblioteca Util --> u	
-  funcao inteiro menu(inteiro opcao) {
-		
+  inclua biblioteca Util --> u
+
+  funcao inteiro proximaPagina(inteiro pagina){
   	faca{
+  		limpa()
+  		escreva("========================================\n")
+  		escreva("* [7]  - Devolver um Kart\n")
+		escreva("* [8]  - Kart que mais gerou ganhos\n")
+		escreva("* [9]  - Receita e lucro do dia, (considerando Karts locados)\n")
+		escreva("* [10] - Locação de circuito\n")
+		escreva("* [11] - Atualizar dia\n")
+		escreva("* [12] - Sair do programa\n")
+		escreva("========================================\n")
+		pagina=1
+  	}enquanto(pagina==0)
+  	retorne pagina
+  }
+  	
+  funcao inteiro menu(inteiro opcao){
 		escreva("========================================\n")
 		escreva("* [1]  - Cadastrar um Kart\n")
 		escreva("* [2]  - Listar Karts disponíveis\n")
@@ -10,26 +25,15 @@ programa {
 		escreva("* [4]  - Listar Karts em manutenção\n")
 		escreva("* [5]  - Atualizar dados do Kart\n")
 		escreva("* [6]  - Alugar um Kart\n")
-		escreva("* [7]  - Devolver um Kart\n")
-		escreva("* [8]  - Kart que mais gerou ganhos\n")
-		escreva("* [9]  - Receita e lucro do dia, (considerando Karts locados)\n")
-		escreva("* [10] - Locação de circuito\n")
-		escreva("* [11] - Atualizar dia\n")
-		escreva("* [12] - Sair do programa\n")
+		escreva("* [0]  - |>> Próxima página |>>\n")
 		escreva("========================================\n")
-		leia(opcao)
-     	se(opcao < 1 ou opcao > 12){
-     		escreva("Opcão inválida! ")
-			u.aguarde(1000)
-			limpa()
-     	}
-  		}enquanto(opcao < 1 ou opcao > 12)
-  		
-	retorne opcao
+			leia(opcao)
+		
+		retorne opcao
   }
 
   funcao inicio() {
-	inteiro opcao = 0	
+	inteiro opcao = 13	
   	opcao = menu(opcao)
   	escolha(opcao){
 		caso 1:
@@ -50,8 +54,8 @@ programa {
       	caso 6:
         	//funcao
       	pare
-      	caso 7:
-        	//funcao
+      	caso 0:
+        	proximaPagina(opcao)
       	pare
      	caso 8:
         	//funcao
@@ -68,6 +72,6 @@ programa {
      	caso 12:
         	//funcao
      	pare
-   }
+	}
   }
 }
