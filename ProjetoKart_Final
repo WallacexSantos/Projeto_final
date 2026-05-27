@@ -37,7 +37,7 @@ programa {
 		escreva("* [5]  - Atualizar dia\n")
 		escreva("* [6]  - Sair do programa\n")
 		escreva("* [0]  - <<| Página Anterior <<|\n")
-		escreva("========================================")
+		escreva("========================================\n")
 			leia(opcao)
 			
 		limpa()
@@ -52,10 +52,93 @@ programa {
 	}
 
 	funcao hub(caracter opcao){
+		cadeia modelo[16], mod
+		inteiro alternativa=0, menu_cor=1, cor, cor2 
+		//A 'cor2' é para a segunda página, previnindo que o usuario na primeira 
+		//pagina digite cor da segunda
+		
 		escolha(opcao)
 		{
-			caso '1':
-				//funcao
+			caso '1': 
+			//Aqui eu uso 'mod' pois ele tem que ser atribuido a um vetor junto a cor, todos os dados do cart tem que estar
+			//em um vetor
+				escreva("Qual o modelo do seu Kart?  ")
+					leia(mod)
+
+					limpa()
+					
+			enquanto(menu_cor==1){
+				menu_cor=0
+				escreva("====================\n")
+				escreva("1 - Vermelho\n")
+				escreva("2 - Branco\n")
+				escreva("3 - Azul\n")
+				escreva("4 - Verde\n")
+				escreva("5 - Amarelo\n")
+				escreva("6 - Laranja\n")
+				escreva("0 - |>>> Próxima Página >>>\n")
+				escreva("====================\n")
+					leia(cor)
+
+				limpa()
+				
+				escolha(cor){
+					caso 1:
+					
+					caso 2:
+
+					caso 3:
+
+					caso 4:
+
+					caso 5:
+
+					caso 6:
+
+					caso 0:
+					
+					escreva("====================\n")
+					escreva("7 - Cinza\n")
+					escreva("8 - Vinho\n")
+					escreva("9 - Ciano\n")
+					escreva("10 - Marrom\n")
+					escreva("11 - Rosa\n")
+					escreva("12 - Roxo\n")
+					escreva("13 - Bege\n")
+					escreva("====================\n")
+						leia(cor2)
+
+					//Agora é só atribuir nos casos abaixo a cor escolhida para o Kart(modelo).
+					
+					//Toda vez que acabar de perguntar o usuário o cadastro, dê a opcao de voltar ao menu ou
+					//cadastrar mais um Kart
+						
+					escolha(cor2){
+						caso 7:
+
+						caso 8:
+
+						caso 9:
+
+						caso 10:
+
+						caso 11:
+
+						caso 12:
+
+						caso 13:
+					}
+					
+					//Eu usei cores limitadas pois é mais fácil atribuir variáveis fixas do que
+					//pedir para o usuário digitar uma cor.
+
+					//Não recomendo usar função aqui pois só precisamos atribuir modelo e cor em 2 vetores (matrizes tbm dá)
+					//pois deixaria o código complicado e difícil colocando funcoes desnecessárias.
+					//use somente na quantidade de locacao, valor e status.
+
+				}
+			}
+				
 			pare
 
 			caso '2':
