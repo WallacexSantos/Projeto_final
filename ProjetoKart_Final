@@ -1,6 +1,8 @@
 programa {
   funcao escreva_menu() {
-    	
+    	caracter opcao
+      logico menu = verdadeiro
+      enquanto(menu == verdadeiro){
     escreva("========================================\n")
 		escreva("* [1]  - Cadastrar um Kart\n")
 		escreva("* [2]  - Listar Karts disponíveis\n")
@@ -10,34 +12,33 @@ programa {
 		escreva("* [6]  - Alugar um Kart\n")
 		escreva("* [0]  - |>> Próxima Página |>>\n")
 		escreva("========================================\n")
-
+    leia(opcao)
+    limpa()
+      se(opcao == '1' ou opcao == '2' ou opcao == '3' ou opcao == '4' ou opcao == '5' ou opcao == '6'){
+       menu = falso
+      }
+      se (menu == verdadeiro){
     escreva("========================================\n")
-		escreva("* [7]  - Devolver um Kart\n")
-		escreva("* [8]  - Kart que mais gerou ganhos\n")
-		escreva("* [9]  - Receita e lucro do dia, (considerando Karts locados)\n")
-		escreva("* [10] - Locação de circuito\n")
-		escreva("* [11] - Atualizar dia\n")
-		escreva("* [12] - Sair do programa\n")
+		escreva("* [1]  - Devolver um Kart\n")
+		escreva("* [2]  - Kart que mais gerou ganhos\n")
+		escreva("* [3]  - Receita e lucro do dia, (considerando Karts locados)\n")
+		escreva("* [4]  - Locação de circuito\n")
+		escreva("* [5]  - Atualizar dia\n")
+		escreva("* [6]  - Sair do programa\n")
 		escreva("* [0]  - <<| Página Anterior <<|\n")
 		escreva("========================================")
-    
-  }
-    funcao menu(){
+    leia(opcao)
+    limpa()
+      se(opcao == '1' ou opcao == '2' ou opcao == '3' ou opcao == '4' ou opcao == '5' ou opcao == '6'){
+      menu = falso
+      }
+      }
+      }
 
-    inteiro opcao
-
-      leia(opcao)
-
-      enquanto(opcao < 1 ou opcao > 12)
-		{
-			escreva("\nOpcao invalida")
-			leia(opcao)
-
-		 }  
       hub(opcao)
     }
 
-    funcao hub(inteiro opcao) {
+    funcao hub(caracter opcao) {
 
 		escolha(opcao)
 		{
@@ -94,6 +95,6 @@ programa {
 
   funcao inicio() {
     escreva_menu()
-    menu()
+
   }
 }
