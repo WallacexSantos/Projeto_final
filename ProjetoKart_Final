@@ -154,7 +154,7 @@ programa {
 		inteiro alternativa=0, menu_cor=1, cor, cor2,i=0,j=0, k=0, l=0,opcao
 		//Karts cadastrados irão aparecer aqui, no momento deixei aguarde 0 para nao atrapalhar
 		escreva("====Garagem dos Karts====")
-		para(j=0;j<4;j++){
+		para(j=0;j<15;j++){
 			escreva(modelo[j], " \n")
 		}
 		escreva("====Cadastrados====")
@@ -180,88 +180,124 @@ programa {
 			limpa()	
 			escolha(cor){
 				caso 1:
-					k = k + 1
+				k = k + 1
 					cores[k] = "Vermelho"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-					u.aguarde(1000)
-					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-					leia(alternativa)
-					se(alternativa==1){
-						cadastro_kart()
-					}senao{
-						pagina_1()
-					}
-				pare
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare 
 				
 				caso 2:
 					k = k + 1
-					cores[k] = "Branco"
+					cores[k] = "Vermelho"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-					u.aguarde(1000)
-					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-					leia(alternativa)
-					se(alternativa==1){
-						cadastro_kart()
-					}senao{
-						pagina_1()
-					}
-				pare
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare 
 				                              
 				caso 3:
 					k = k + 1
-					cores[k] = "Azul"
+					cores[k] = "Vermelho"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-					u.aguarde(1000)
-					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-					leia(alternativa)
-					se(alternativa==1){
-						cadastro_kart()
-					}senao{
-						pagina_1()
-					}
-				pare
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare 
 				
 				caso 4:
 					k = k + 1
-					cores[k] = "Verde"
+					cores[k] = "Vermelho"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-					u.aguarde(1000)
-					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-					leia(alternativa)
-					se(alternativa==1){
-						cadastro_kart()
-					}senao{
-						pagina_1()
-					}
-				pare
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare 
 
 				caso 5:
 					k = k + 1
-					cores[k] = "Amarelo"
+					cores[k] = "Vermelho"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-					u.aguarde(1000)
-					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-					leia(alternativa)
-					se(alternativa==1){
-						cadastro_kart()
-					}senao{
-						pagina_1()
-					}
-				pare
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare 
 
 				caso 6:
 					k = k + 1
-					cores[k] = "Laranja"
+					cores[k] = "Vermelho"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-					u.aguarde(1000)
-					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-					leia(alternativa)
-					se(alternativa==1){
-						cadastro_kart()
-					}senao{
-						pagina_1()
-					}
-				pare
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare 
 
 				caso 0:	
 					escreva("====================\n")
