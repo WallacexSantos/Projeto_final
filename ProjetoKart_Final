@@ -5,6 +5,7 @@
 	//Vai que o professor valoriza mais a nota
 
 programa {
+	inclua biblioteca Util --> u 
 	
 	funcao escreva_menu(){
 	cadeia opcao = " "
@@ -159,15 +160,24 @@ programa {
 	}
 
   funcao cadastro_kart () {
-    cadeia modelo[16], mod
-		inteiro alternativa=0, menu_cor=1, cor, cor2 
-		//A 'cor2' é para a segunda página, previnindo que o usuario na primeira 
-		//pagina digite cor da segunda
+  	
+    cadeia modelo[16], mod, cores[16]
+		inteiro alternativa=0, menu_cor=1, cor, cor2,i=0,j=0, k=0, l=0,opcao
+		//Karts cadastrados irão aparecer aqui, no momento deixei aguarde 0 para nao atrapalhar
 		
-    //Aqui eu uso 'mod' pois ele tem que ser atribuido a um vetor junto a cor, todos os dados do cart tem que estar
-			//em um vetor
-				escreva("Qual o modelo do seu Kart?  ")
+				escreva("====Garagem dos Karts====")
+					para(j=0;j<4;j++){
+						escreva(modelo[j], " \n")
+					}
+				escreva("====Cadastrados====")
+					u.aguarde(0)
+				
+		limpa()
+		
+				escreva("Qual o modelo do seu Kart?\n>..   ")
 					leia(mod)
+					i = i + 1
+					modelo[i] = mod
 
 					limpa()
 					
@@ -183,21 +193,105 @@ programa {
 				escreva("0 - |>>> Próxima Página >>>\n")
 				escreva("====================\n")
 					leia(cor)
-
+				
 				limpa()
 				
 				escolha(cor){
 					caso 1:
+					k = k + 1
+					cores[k] = "Vermelho"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+						leia(alternativa)
+
+						se(alternativa==1){
+							cadastro_kart()
+						}senao{
+							pagina_1()
+						}
+						pare
 					   
 					caso 2:
+					k = k + 1
+					cores[k] = "Branco"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+						leia(alternativa)
+
+						se(alternativa==1){
+							cadastro_kart()
+						}senao{
+							pagina_1()
+						}
+						pare
                               
 					caso 3:
+					k = k + 1
+					cores[k] = "Azul"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+						leia(alternativa)
+
+						se(alternativa==1){
+							cadastro_kart()
+						}senao{
+							pagina_1()
+						}
+						pare
 
 					caso 4:
+					k = k + 1
+					cores[k] = "Verde"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+						leia(alternativa)
+
+						se(alternativa==1){
+							cadastro_kart()
+						}senao{
+							pagina_1()
+						}
+						pare
 
 					caso 5:
+					k = k + 1
+					cores[k] = "Amarelo"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+						leia(alternativa)
+
+						se(alternativa==1){
+							cadastro_kart()
+						}senao{
+							pagina_1()
+						}
+						pare
 
 					caso 6:
+					k = k + 1
+					cores[k] = "Laranja"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+						leia(alternativa)
+
+						se(alternativa==1){
+							cadastro_kart()
+						}senao{
+							pagina_1()
+						}
+						pare
 
 					caso 0:
 					
@@ -211,11 +305,6 @@ programa {
 					escreva("13 - Bege\n")
 					escreva("====================\n")
 						leia(cor2)
-
-					//Agora é só atribuir nos casos abaixo a cor escolhida para o Kart(modelo).
-					
-					//Toda vez que acabar de perguntar o usuário o cadastro, dê a opcao de voltar ao menu ou
-					//cadastrar mais um Kart
 						
 					escolha(cor2){
 						caso 7:
@@ -232,13 +321,6 @@ programa {
 
 						caso 13:
 					}
-					
-					//Eu usei cores limitadas pois é mais fácil atribuir variáveis fixas do que
-					//pedir para o usuário digitar uma cor.
-
-					//Não recomendo usar função aqui pois só precisamos atribuir modelo e cor em 2 vetores (matrizes tbm dá)
-					//pois deixaria o código complicado e difícil colocando funcoes desnecessárias.
-					//use somente na quantidade de locacao, valor e status.
 
 				}
 			}
