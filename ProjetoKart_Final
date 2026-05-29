@@ -150,8 +150,9 @@ programa {
 
   	funcao cadastro_kart () {
   	
-    		cadeia modelo[16], mod, cores[16]
-		inteiro alternativa=0, menu_cor=1, cor, cor2,i=0,j=0, k=0, l=0,opcao
+    		cadeia modelo[16], mod, cores[16],opcao
+		inteiro alternativa=0, cor=1, cor2,i=0,j=0, k=0, l=0,opcao_=0
+		logico menu_cor = verdadeiro
 		//Karts cadastrados irão aparecer aqui, no momento deixei aguarde 0 para nao atrapalhar
 		escreva("====Garagem dos Karts====")
 		para(j=0;j<15;j++){
@@ -165,19 +166,59 @@ programa {
 		i = i + 1
 		modelo[i] = mod
 		limpa()			
-		enquanto(menu_cor==1){
-			menu_cor=0
-			escreva("====================\n")
-			escreva("1 - Vermelho\n")
-			escreva("2 - Branco\n")
-			escreva("3 - Azul\n")
-			escreva("4 - Verde\n")
-			escreva("5 - Amarelo\n")
-			escreva("6 - Laranja\n")
-			escreva("0 - |>>> Próxima Página >>>\n")
-			escreva("====================\n")
-			leia(cor)	
-			limpa()	
+		enquanto(menu_cor == verdadeiro){
+          	menu_cores_pagina_1()
+    			leia(opcao)		
+    			limpa()
+			se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
+				menu_cor = falso
+	 			se(opcao == "1"){
+					cor = 1
+      			}
+      			senao se(opcao == "2"){
+					cor = 2
+      			}
+      			senao se(opcao == "3"){
+         				cor = 3
+      			}
+      			senao se(opcao == "4"){
+         				cor = 4
+      			}
+      			senao se(opcao == "5"){
+         				cor = 5
+      			}
+      			senao{
+         				cor = 6
+     			}
+			}
+		
+			se (menu_cor == verdadeiro){
+				menu_cores_pagina_2()
+				leia(opcao)
+				limpa()		
+				se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
+      				menu_cor = falso
+      				se(opcao == "1"){
+         					cor = 7
+					}
+      				senao se(opcao == "2"){
+         					cor = 8
+      				}
+      				senao se(opcao == "3"){
+         					cor = 9
+      				}
+      				senao se(opcao == "4"){
+         					cor = 10
+      				}
+      				senao se(opcao == "5"){
+         					cor = 11
+      				}
+      				senao{
+         					cor = 12
+              }
+      				}
+	  			}
+	 		}
 			escolha(cor){
 				caso 1:
 				k = k + 1
@@ -189,10 +230,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -209,10 +250,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -229,10 +270,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -249,10 +290,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -269,10 +310,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -289,28 +330,17 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
 						limpa()
 					   pare 
 
-				caso 0:	
-					escreva("====================\n")
-					escreva("7 - Cinza\n")
-					escreva("8 - Vinho\n")
-					escreva("9 - Ciano\n")
-					escreva("10 - Marrom\n")
-					escreva("11 - Rosa\n")
-					escreva("12 - Roxo\n")
-					escreva("13 - Bege\n")
-					escreva("====================\n")
-					leia(cor2)
-					escolha(cor2){
+				
 						caso 7:
 						k = k + 1
 						cores[k] = "Cinza"
@@ -321,10 +351,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -341,10 +371,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -361,10 +391,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -381,10 +411,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -401,10 +431,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -421,10 +451,10 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
@@ -441,19 +471,48 @@ programa {
 							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
 								leia(opcao)
 									
-							se(opcao==1){	
+							se(opcao_==1){	
 								cadastro_kart()
 							}
-							senao se(opcao==2){
+							senao se(opcao_==2){
 								escreva_menu()
 							}
 						
 						limpa()
 					   pare
-					}
-				pare
+					
+				
 			}
-		}
+	}
+
+	funcao menu_cores_pagina_1(){
+		
+			escreva("====================\n")
+			escreva("1 - Vermelho\n")
+			escreva("2 - Branco\n")
+			escreva("3 - Azul\n")
+			escreva("4 - Verde\n")
+			escreva("5 - Amarelo\n")
+			escreva("6 - Laranja\n")
+			escreva("0 - |>>> Próxima Página >>>\n")
+			escreva("====================\n")
+
+			
+	}
+
+	funcao menu_cores_pagina_2(){
+
+			escreva("====================\n")
+			escreva("7 - Cinza\n")
+			escreva("8 - Vinho\n")
+			escreva("9 - Ciano\n")
+			escreva("10 - Marrom\n")
+			escreva("11 - Rosa\n")
+			escreva("12 - Roxo\n")
+			escreva("13 - Bege\n")
+			escreva("====================\n")
+
+		
 	}
 	
 	funcao listar_karts_disponiveis(){                          
