@@ -201,7 +201,7 @@ programa {
 				
 				caso 2:
 					k = k + 1
-					cores[k] = "Vermelho"
+					cores[k] = "Branco"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
 						u.aguarde(1000)
 
@@ -221,7 +221,7 @@ programa {
 				                              
 				caso 3:
 					k = k + 1
-					cores[k] = "Vermelho"
+					cores[k] = "Azul"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
 						u.aguarde(1000)
 
@@ -241,7 +241,7 @@ programa {
 				
 				caso 4:
 					k = k + 1
-					cores[k] = "Vermelho"
+					cores[k] = "Verde"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
 						u.aguarde(1000)
 
@@ -261,7 +261,7 @@ programa {
 
 				caso 5:
 					k = k + 1
-					cores[k] = "Vermelho"
+					cores[k] = "Amarelo"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
 						u.aguarde(1000)
 
@@ -281,7 +281,7 @@ programa {
 
 				caso 6:
 					k = k + 1
-					cores[k] = "Vermelho"
+					cores[k] = "Laranja"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
 						u.aguarde(1000)
 
@@ -312,18 +312,144 @@ programa {
 					leia(cor2)
 					escolha(cor2){
 						caso 7:
+						k = k + 1
+						cores[k] = "Cinza"
+						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare
 
 						caso 8:
+						k = k + 1
+						cores[k] = "Vinho"
+						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare
 
 						caso 9:
+						k = k + 1
+						cores[k] = "Ciano"
+						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare
 
 						caso 10:
+						k = k + 1
+						cores[k] = "Marrom"
+						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare
 
 						caso 11:
+						k = k + 1
+						cores[k] = "Rosa"
+						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare
 
 						caso 12:
+						k = k + 1
+						cores[k] = "Roxo"
+						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare
 				
 						caso 13:
+						k = k + 1
+						cores[k] = "Bege"
+						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+						u.aguarde(1000)
+
+						
+							escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
+								leia(opcao)
+									
+							se(opcao==1){	
+								cadastro_kart()
+							}
+							senao se(opcao==2){
+								escreva_menu()
+							}
+						
+						limpa()
+					   pare
 					}
 				pare
 			}
