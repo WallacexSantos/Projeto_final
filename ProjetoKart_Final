@@ -8,78 +8,69 @@ programa {
 	inclua biblioteca Util --> u 
 	
 	funcao escreva_menu(){
-	cadeia opcao = " "
-	logico menu = verdadeiro
-	inteiro chamar_funcao = 1
+		cadeia opcao = " "
+		logico menu = verdadeiro
+		inteiro chamar_funcao = 1
 	
-	enquanto(menu == verdadeiro){
-
-          pagina_1()
-    			leia(opcao)
-    			
-    		limpa()
-    
-	se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
-		menu = falso
-	 se(opcao =="1"){
-         chamar_funcao = 1
-      }
-      senao se(opcao == "2"){
-         chamar_funcao = 2
-      }
-      senao se(opcao == "3"){
-         chamar_funcao = 3
-      }
-      senao se(opcao == "4"){
-         chamar_funcao = 4
-      }
-      senao se(opcao == "5"){
-         chamar_funcao = 5
-      }
-      senao{
-         chamar_funcao = 6
-     }
-	}
-	
-     
-	se (menu == verdadeiro){
-
-      pagina_2()
-			leia(opcao)
-			
-		limpa()
+		enquanto(menu == verdadeiro){
+          	pagina_1()
+    			leia(opcao)		
+    			limpa()
+			se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
+				menu = falso
+	 			se(opcao =="1"){
+					chamar_funcao = 1
+      			}
+      			senao se(opcao == "2"){
+					chamar_funcao = 2
+      			}
+      			senao se(opcao == "3"){
+         				chamar_funcao = 3
+      			}
+      			senao se(opcao == "4"){
+         				chamar_funcao = 4
+      			}
+      			senao se(opcao == "5"){
+         				chamar_funcao = 5
+      			}
+      			senao{
+         				chamar_funcao = 6
+     			}
+			}
 		
-	se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
-      menu = falso
-      se(opcao =="1"){
-         chamar_funcao = 7
-      }
-      senao se(opcao == "2"){
-         chamar_funcao = 8
-      }
-      senao se(opcao == "3"){
-         chamar_funcao = 9
-      }
-      senao se(opcao == "4"){
-         chamar_funcao = 10
-      }
-      senao se(opcao == "5"){
-         chamar_funcao = 11
-      }
-      senao{
-         chamar_funcao = 12
-      }
-	  }
-	 }
-	
- 
-	}
+			se (menu == verdadeiro){
+				pagina_2()
+				leia(opcao)
+				limpa()		
+				se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
+      				menu = falso
+      				se(opcao =="1"){
+         					chamar_funcao = 7
+					}
+      				senao se(opcao == "2"){
+         					chamar_funcao = 8
+      				}
+      				senao se(opcao == "3"){
+         					chamar_funcao = 9
+      				}
+      				senao se(opcao == "4"){
+         					chamar_funcao = 10
+      				}
+      				senao se(opcao == "5"){
+         					chamar_funcao = 11
+      				}
+      				senao{
+         					chamar_funcao = 12
+      				}
+	  			}
+	 		}
+		}
 	hub(chamar_funcao)
 	}
 
-  funcao pagina_1(){
-
-    		escreva("========================================\n")
+  	funcao pagina_1(){
+  		
+		escreva("========================================\n")
 		escreva("* [1]  - Cadastrar um Kart\n")
 		escreva("* [2]  - Listar Karts disponíveis\n")
 		escreva("* [3]  - Listar Karts locados\n")
@@ -88,10 +79,9 @@ programa {
 		escreva("* [6]  - Alugar um Kart\n")
 		escreva("* [0]  - |>> Próxima Página |>>\n")
 		escreva("========================================\n")
+  	}
 
-  }
-
-  funcao pagina_2(){
+  	funcao pagina_2(){
 
    	     escreva("========================================\n")
 		escreva("* [1]  - Devolver um Kart\n")
@@ -102,8 +92,7 @@ programa {
 		escreva("* [6]  - Sair do programa\n")
 		escreva("* [0]  - <<| Página Anterior <<|\n")
 		escreva("========================================\n")
-
-  }
+  	}
 
 	funcao hub(inteiro chamar_funcao){
 		
@@ -159,142 +148,122 @@ programa {
 		}
 	}
 
-  funcao cadastro_kart () {
+  	funcao cadastro_kart () {
   	
-    cadeia modelo[16], mod, cores[16]
+    		cadeia modelo[16], mod, cores[16]
 		inteiro alternativa=0, menu_cor=1, cor, cor2,i=0,j=0, k=0, l=0,opcao
 		//Karts cadastrados irão aparecer aqui, no momento deixei aguarde 0 para nao atrapalhar
-		
-				escreva("====Garagem dos Karts====")
-					para(j=0;j<4;j++){
-						escreva(modelo[j], " \n")
-					}
-				escreva("====Cadastrados====")
-					u.aguarde(0)
-				
+		escreva("====Garagem dos Karts====")
+		para(j=0;j<4;j++){
+			escreva(modelo[j], " \n")
+		}
+		escreva("====Cadastrados====")
+		u.aguarde(2000)		
 		limpa()
-		
-				escreva("Qual o modelo do seu Kart?\n>..   ")
-					leia(mod)
-					i = i + 1
-					modelo[i] = mod
-
-					limpa()
-					
-			enquanto(menu_cor==1){
-				menu_cor=0
-				escreva("====================\n")
-				escreva("1 - Vermelho\n")
-				escreva("2 - Branco\n")
-				escreva("3 - Azul\n")
-				escreva("4 - Verde\n")
-				escreva("5 - Amarelo\n")
-				escreva("6 - Laranja\n")
-				escreva("0 - |>>> Próxima Página >>>\n")
-				escreva("====================\n")
-					leia(cor)
-				
-				limpa()
-				
-				escolha(cor){
-					caso 1:
+		escreva("Qual o modelo do seu Kart?\n>..   ")
+		leia(mod)
+		i = i + 1
+		modelo[i] = mod
+		limpa()			
+		enquanto(menu_cor==1){
+			menu_cor=0
+			escreva("====================\n")
+			escreva("1 - Vermelho\n")
+			escreva("2 - Branco\n")
+			escreva("3 - Azul\n")
+			escreva("4 - Verde\n")
+			escreva("5 - Amarelo\n")
+			escreva("6 - Laranja\n")
+			escreva("0 - |>>> Próxima Página >>>\n")
+			escreva("====================\n")
+			leia(cor)	
+			limpa()	
+			escolha(cor){
+				caso 1:
 					k = k + 1
 					cores[k] = "Vermelho"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-						u.aguarde(1000)
-
+					u.aguarde(1000)
 					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-						leia(alternativa)
-
-						se(alternativa==1){
-							cadastro_kart()
-						}senao{
-							pagina_1()
-						}
-						pare
-					   
-					caso 2:
+					leia(alternativa)
+					se(alternativa==1){
+						cadastro_kart()
+					}senao{
+						pagina_1()
+					}
+				pare
+				
+				caso 2:
 					k = k + 1
 					cores[k] = "Branco"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-						u.aguarde(1000)
-
+					u.aguarde(1000)
 					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-						leia(alternativa)
-
-						se(alternativa==1){
-							cadastro_kart()
-						}senao{
-							pagina_1()
-						}
-						pare
-                              
-					caso 3:
+					leia(alternativa)
+					se(alternativa==1){
+						cadastro_kart()
+					}senao{
+						pagina_1()
+					}
+				pare
+				                              
+				caso 3:
 					k = k + 1
 					cores[k] = "Azul"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-						u.aguarde(1000)
-
+					u.aguarde(1000)
 					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-						leia(alternativa)
-
-						se(alternativa==1){
-							cadastro_kart()
-						}senao{
-							pagina_1()
-						}
-						pare
-
-					caso 4:
+					leia(alternativa)
+					se(alternativa==1){
+						cadastro_kart()
+					}senao{
+						pagina_1()
+					}
+				pare
+				
+				caso 4:
 					k = k + 1
 					cores[k] = "Verde"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-						u.aguarde(1000)
-
+					u.aguarde(1000)
 					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-						leia(alternativa)
+					leia(alternativa)
+					se(alternativa==1){
+						cadastro_kart()
+					}senao{
+						pagina_1()
+					}
+				pare
 
-						se(alternativa==1){
-							cadastro_kart()
-						}senao{
-							pagina_1()
-						}
-						pare
-
-					caso 5:
+				caso 5:
 					k = k + 1
 					cores[k] = "Amarelo"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-						u.aguarde(1000)
-
+					u.aguarde(1000)
 					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-						leia(alternativa)
+					leia(alternativa)
+					se(alternativa==1){
+						cadastro_kart()
+					}senao{
+						pagina_1()
+					}
+				pare
 
-						se(alternativa==1){
-							cadastro_kart()
-						}senao{
-							pagina_1()
-						}
-						pare
-
-					caso 6:
+				caso 6:
 					k = k + 1
 					cores[k] = "Laranja"
 					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-						u.aguarde(1000)
-
+					u.aguarde(1000)
 					escreva("[1] - Cadastrar mais Karts\n[2] - Menu")
-						leia(alternativa)
+					leia(alternativa)
+					se(alternativa==1){
+						cadastro_kart()
+					}senao{
+						pagina_1()
+					}
+				pare
 
-						se(alternativa==1){
-							cadastro_kart()
-						}senao{
-							pagina_1()
-						}
-						pare
-
-					caso 0:
-					
+				caso 0:	
 					escreva("====================\n")
 					escreva("7 - Cinza\n")
 					escreva("8 - Vinho\n")
@@ -304,8 +273,7 @@ programa {
 					escreva("12 - Roxo\n")
 					escreva("13 - Bege\n")
 					escreva("====================\n")
-						leia(cor2)
-						
+					leia(cor2)
 					escolha(cor2){
 						caso 7:
 
@@ -318,57 +286,56 @@ programa {
 						caso 11:
 
 						caso 12:
-
+				
 						caso 13:
 					}
-
-				}
+				pare
 			}
-  }
-
-    funcao listar_karts_disponiveis(){
-                                
-                                  
-    }
-   
-    funcao listar_karts_locados(){
-     	
-    }                              
-
-    funcao listar_karts_em_manutencao(){
-
-   }
+		}
+	}
 	
-    funcao atualizar_dados_do_kart(){ 
-
-   }
+	funcao listar_karts_disponiveis(){                          
+                                  
+	}
    
-    funcao alugar_um_kart(){
+	funcao listar_karts_locados(){
+     	
+    	}                              
 
-   }  
+    	funcao listar_karts_em_manutencao(){
+
+   	}
+	
+    	funcao atualizar_dados_do_kart(){ 
+
+   	}
+   
+    	funcao alugar_um_kart(){
+
+   	}  
   
-    funcao devolver_um_kart(){
+    	funcao devolver_um_kart(){
    	
-   }
+   	}
 
-    funcao kart_que_gerou_mais_receita(){
+    	funcao kart_que_gerou_mais_receita(){
    	
-   }
+   	}
 
-    funcao receita_e_lucro_por_dia(){
+    	funcao receita_e_lucro_por_dia(){
    	
-   }
+   	}
    
-    funcao locacao_de_circurto(){
+    	funcao locacao_de_circurto(){
     	
-   }
+   	}
    
-    funcao atualizar_dia(){
+    	funcao atualizar_dia(){
     	
-   }
+   	}
    
-    funcao inicio(){
+    	funcao inicio(){
 		escreva_menu()
 		
-}
+	}
 }
