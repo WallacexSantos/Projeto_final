@@ -108,48 +108,48 @@ programa {
 		
 		escolha(chamar_funcao)
 		{
-			  caso 1: 
-            cadastro_kart ()
-		    	pare
+		     caso 1: 
+                  cadastro_kart()
+		     pare
 		    	
-		  	caso 2:
-				    //funcao
-			    pare
+		     caso 2:
+		        listar_karts_disponiveis()
+		     pare
 
-			  caso 3:
-			    	//funcao
-		    	pare
+               caso 3:
+		 	   listar_karts_locados()
+		     pare
 
 		     caso 4:
-		        //funcao
+		 	   listar_karts_em_manutencao()
 		     pare
 		
 		     caso 5:
-		        //funcao
+			   atualizar_dados_do_kart()
 		     pare
 		
 		     caso 6:
-		        //funcao
+			   alugar_um_kart()
 		     pare
-		
+		        
 		     caso 7:
-		        //funcao
+		        devolver_um_kart()
 		     pare
 		
 		     caso 8:
-		        //funcao
+		        kart_que_gerou_mais_receita()
 		     pare
 		
 		     caso 9:
-		        //funcao
+		        receita_e_lucro_por_dia()
 		     pare
 		
 		     caso 10:
-		        //funcao
+		        locacao_de_circurto()
 		     pare
 		
 		     caso 11:
-		        //funcao
+		        atualizar_dia()
 		     pare
 		
 		     caso 12:
@@ -188,9 +188,9 @@ programa {
 				
 				escolha(cor){
 					caso 1:
-					
+					   
 					caso 2:
-
+                              
 					caso 3:
 
 					caso 4:
@@ -244,8 +244,49 @@ programa {
 			}
   }
 
-	funcao inicio() {
+    funcao listar_karts_disponiveis(){
+                                
+                                  
+    }
+   
+    funcao listar_karts_locados(){
+     	
+    }                              
+
+    funcao listar_karts_em_manutencao(){
+
+   }
+	
+    funcao atualizar_dados_do_kart(){ 
+
+   }
+   
+    funcao alugar_um_kart(){
+
+   }  
+  
+    funcao devolver_um_kart(){
+   	
+   }
+
+    funcao kart_que_gerou_mais_receita(){
+   	
+   }
+
+    funcao receita_e_lucro_por_dia(){
+   	
+   }
+   
+    funcao locacao_de_circurto(){
+    	
+   }
+   
+    funcao atualizar_dia(){
+    	
+   }
+   
+    funcao inicio(){
 		escreva_menu()
 		
-	}
+}
 }
