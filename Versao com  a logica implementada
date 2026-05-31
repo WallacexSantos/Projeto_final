@@ -80,7 +80,7 @@ programa {
 		escreva("* [4]  - Listar Karts em manutenção\n")
 		escreva("* [5]  - Atualizar dados do Kart\n")
 		escreva("* [6]  - Alugar um Kart\n")
-	    	escreva("* [7]  - digite enter para avancar de pagina\n")
+	    escreva("* [7]  - digite enter para avancar de pagina\n")
 		escreva("* [0]  - |>> Próxima Página |>>\n")
 		escreva("========================================\n")
   	}
@@ -93,7 +93,7 @@ programa {
 		escreva("* [4]  - Locação de circuito\n")
 		escreva("* [5]  - Atualizar dia\n")
 		escreva("* [6]  - Sair do programa\n")
-          escreva("* [7]  - digite enter para retorna a pagina anterior\n")
+        escreva("* [7]  - digite enter para retorna a pagina anterior\n")
 		escreva("* [0]  - <<| Página Anterior <<|\n")
 		escreva("========================================\n")
   	}
@@ -360,7 +360,7 @@ programa {
 			escreva("[11] - Rosa\n")
 			escreva("[12] - Roxo\n")
 			escreva("[13] - Bege\n")
-		     escreva("[14] - Digite enter para retorna\n")
+		    escreva("[14] - Digite enter para retorna\n")
 			escreva("====================\n")
 
 		
