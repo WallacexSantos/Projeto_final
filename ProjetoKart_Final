@@ -6,7 +6,48 @@
 
 programa {
 	inclua biblioteca Util --> u 
+/*DEIXAR COMO COMENTARIO ESTE TESTE DE LISTAR MODELO E COR DESTE MODO: 
+ ta incompleto, mas podemos tentar desse jeito la em baixo:
+programa
+{
 	
+	funcao inicio()
+	{
+		cadeia modelo[16], opcao = " "
+		inteiro i
+		para (i=0; i<16; i++){
+			modelo[i] = cadastro_kart_modelo(opcao)		
+			se(opcao == "1"){
+				i++
+				modelo[i] = cadastro_kart_modelo(opcao)
+			}
+			se(opcao == "2"){
+				i = 16
+			}
+		}
+		para (i=0; i<16; i++){
+			escreva(modelo[i], "\n")
+		}
+
+	}
+
+	funcao cadeia cadastro_kart_modelo(cadeia &opcao){
+		
+		cadeia modelo
+		escreva("Qual o modelo do seu Kart?: ")
+		leia(modelo)
+		escreva("deseja cadastrar mais modelos?\n")
+		escreva("1. sim\n")
+		escreva("2. nao\n")
+		leia(opcao)
+		enquanto (opcao!= "1" e opcao!= "2"){
+			escreva("opcao incorreta! digite novamente:")
+			leia(opcao)
+		}
+		retorne modelo
+	}
+}
+*/
 	funcao escreva_menu(){
 		cadeia opcao = " "
 		logico menu = verdadeiro
