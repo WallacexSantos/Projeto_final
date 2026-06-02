@@ -7,6 +7,27 @@
 programa {
 	inclua biblioteca Util --> u 
 	
+	funcao logo()
+ 	{
+ 		u.aguarde(0)
+ 		escreva("\n██    ██╗ █████╗░██████╗░████████╗   ██╗    ███████╗ ███████╗ ")
+ 		u.aguarde(0)
+ 		escreva("\n██  ██╔═╝██╔══██╗██╔══██╗╚══██╔══╝   ██║    ██  ║██║ ██       ")
+ 		u.aguarde(0)
+ 		escreva("\n████║    ███████║██████╔╝░░░██║      ██║    ██  ║██║ ██ ████║")
+ 		u.aguarde(0)
+ 		escreva("\n██  ██╚═╗██╔══██║██╔══██╗   ██║      ██╚══╗ ██  ║██║ ██  ║██║")
+ 		u.aguarde(0)
+ 		escreva("\n██    ██║██║░░██║██║░░██║   ██║      █████║ ███████║ ███████║")
+ 		u.aguarde(0)
+ 		escreva("\n╚╝    ╚═╝╚═╝░░╚═╝╚═╝░░╚═╝   ╚═╝      ╚════╝ ╚══════╝ ╚══════╝")
+ 		u.aguarde(0)
+ 		limpa()
+ 		
+ 		
+ 	}
+
+	
 	funcao escreva_menu(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i){
 		cadeia opcao = " "
 		logico menu = verdadeiro
@@ -154,7 +175,7 @@ programa {
   	funcao cadastro_kart (cadeia modelo[],cadeia cores[], real locacao[], inteiro i) {
   	
     		cadeia mod,opcao
-    		real locacaokart = 0
+    		real locacaokart = 0.0
 		inteiro alternativa=0, cor=1, cor2,j=0, l=0,opcao_=0
 		logico menu_cor = verdadeiro
 		//Karts cadastrados irão aparecer aqui, no momento deixei aguarde 0 para nao atrapalhar
@@ -443,6 +464,7 @@ programa {
    		real locacao[16]
    		inteiro i = 0
    		
+   		logo()
 		escreva_menu( modelo , cores, locacao, i)
 		
 	}
