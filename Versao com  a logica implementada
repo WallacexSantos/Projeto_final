@@ -80,8 +80,8 @@ programa {
 		escreva("* [4]  - Listar Karts em manutenção\n")
 		escreva("* [5]  - Atualizar dados do Kart\n")
 		escreva("* [6]  - Alugar um Kart\n")
-	     escreva("* [7]  - digite enter para avancar de pagina\n")
-		escreva("* [0]  - |>> Próxima Página |>>\n")
+	     escreva("* [7]  - Sair do Programa\n")
+		escreva("* [0]  - |>>Aperte Enter para Próxima Página |>>\n")
 		escreva("========================================\n")
   	}
   	funcao pagina_2(){
@@ -93,8 +93,7 @@ programa {
 		escreva("* [4]  - Locação de circuito\n")
 		escreva("* [5]  - Atualizar dia\n")
 		escreva("* [6]  - Sair do programa\n")
-        	escreva("* [7]  - digite enter para retorna a pagina anterior\n")
-		escreva("* [0]  - <<| Página Anterior <<|\n")
+		escreva("* [0]  - <<| Aperte Enter para Página Anterior <<|\n")
 		escreva("========================================\n")
   	}
 
@@ -160,7 +159,8 @@ programa {
 		//Karts cadastrados irão aparecer aqui, no momento deixei aguarde 0 para nao atrapalhar
 		escreva("====Garagem dos Karts====")
 		para(j=0;j<15;j++){
-			escreva(modelo[j], " \n")
+			escreva(modelo[j]," " ,cores[j], "\n")
+
 		}
 		escreva("====Cadastrados====")
 		u.aguarde(2000)		
@@ -174,7 +174,7 @@ programa {
           	menu_cores_pagina_1()
     			leia(opcao)		
     			limpa()
-			se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
+			se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6" ou opcao == "7"){
 				menu_cor = falso
 	 			se(opcao == "1"){
 					cor = 1
@@ -191,8 +191,11 @@ programa {
       			senao se(opcao == "5"){
          				cor = 5
       			}
-      			senao{
+      			senao se(opcao == "6"){
          				cor = 6
+      			}
+      			senao{
+         				cor = 7
      			}
 			}
 		
@@ -200,150 +203,145 @@ programa {
 				menu_cores_pagina_2()
 				leia(opcao)
 				limpa()		
-				se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6"){
+				se(opcao == "8" ou opcao == "9" ou opcao == "10" ou opcao == "11" ou opcao == "12" ou opcao == "13" ou opcao == "14"){
       				menu_cor = falso
-      				se(opcao == "1"){
-         					cor = 7
-					}
-      				senao se(opcao == "2"){
+      				se(opcao == "8"){
          					cor = 8
-      				}
-      				senao se(opcao == "3"){
+					}
+      				senao se(opcao == "9"){
          					cor = 9
       				}
-      				senao se(opcao == "4"){
+      				senao se(opcao == "10"){
          					cor = 10
       				}
-      				senao se(opcao == "5"){
+      				senao se(opcao == "11"){
          					cor = 11
       				}
-      				senao{
+      				senao se(opcao == "12"){
          					cor = 12
+      				}
+      				senao se(opcao == "13"){
+         					cor = 13
+      				}
+      				senao{
+         					cor = 14
               }
       				}
 	  			}
 	 		}
 			escolha(cor){
 				 caso 1:
-				    k = k + 1
-				  	cores[k] = "Vermelho"
-					  escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-	
-					   cadastrar_mais_karts(modelo,cores,i,k)
-					   pare 
+				 	k = k + 1
+				 	cores[k] = "Vermelho"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare 
 				
-				 caso 2:
-				  	k = k + 1
-		  			cores[k] = "Branco"
-				  	escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-
-					   cadastrar_mais_karts(modelo,cores,i,k)
-					   pare 
+				caso 2:
+					k = k + 1
+					cores[k] = "Branco"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare 
 				                              
-				 caso 3:
-				  	k = k + 1
-				  	cores[k] = "Azul"
-				  	escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-
-					   cadastrar_mais_karts(modelo,cores,i,k)
-					   pare 
+				caso 3:
+					k = k + 1
+					cores[k] = "Azul"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare 
 				
-				 caso 4:
-				  	k = k + 1
-				  	cores[k] = "Verde"
-					  escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+				caso 4:
+					k = k + 1
+					cores[k] = "Verde"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare 
 
-					   cadastrar_mais_karts(modelo,cores,i,k)
-					   pare 
+				caso 5:
+					k = k + 1
+					cores[k] = "Amarelo"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare 
 
-				 caso 5:
-					   k = k + 1
-					   cores[k] = "Amarelo"
-					   escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-	
-					  	cadastrar_mais_karts(modelo,cores,i,k)
-					    pare 
-
-				 caso 6:
-					   k = k + 1
-				  	cores[k] = "Laranja"
-				  	escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-
-				     	cadastrar_mais_karts(modelo,cores,i,k)
-					    pare 
-
+				caso 6:
+					k = k + 1
+					cores[k] = "Laranja"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare 
 				
-				 caso 7:
-					  k = k + 1
-						cores[k] = "Cinza"
-						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-
-						 cadastrar_mais_karts(modelo,cores,i,k)
-					   pare
+				caso 7:
+					k = k + 1
+					cores[k] = "Cinza"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare
 
 				caso 8:
-						k = k + 1
-						cores[k] = "Vinho"
-						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-
-					    cadastrar_mais_karts(modelo,cores,i,k)
-					    pare
+					k = k + 1
+					cores[k] = "Vinho"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare
 
 			     caso 9:
-						k = k + 1
-						cores[k] = "Ciano"
-						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-	
-					    cadastrar_mais_karts(modelo,cores,i,k)
-					    pare
+					k = k + 1
+					cores[k] = "Ciano"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare
 
-		  	  	caso 10:
-						k = k + 1
-						cores[k] = "Marrom"
-						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-	
-				   	    cadastrar_mais_karts(modelo,cores,i,k)
-					    pare
+				caso 10:
+					k = k + 1
+					cores[k] = "Marrom"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare
 
 				caso 11:
-						k = k + 1
-						cores[k] = "Rosa"
-						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-						
-			    	 	    cadastrar_mais_karts(modelo,cores,i,k)
-					    pare
+					k = k + 1
+					cores[k] = "Rosa"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare
 
 				caso 12:
-						k = k + 1
-						cores[k] = "Roxo"
-						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-						
-					    cadastrar_mais_karts(modelo,cores,i,k)
-					    pare
+					k = k + 1
+					cores[k] = "Roxo"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare
 				
 				caso 13:
-						k = k + 1
-						cores[k] = "Bege"
-						escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
-						
-					    cadastrar_mais_karts(modelo,cores,i,k)
-					    pare
-					
+					k = k + 1
+					cores[k] = "Bege"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare
 				
+				caso 14:
+					k = k + 1
+					cores[k] = "Preto"
+					escreva("Kart modelo [",mod,"] cor [", cores[k] ,"] criado(a) com sucesso!\n")
+					cadastrar_mais_karts(modelo,cores,i,k)
+				pare
 			}
 	}
 
 	funcao menu_cores_pagina_1(){
 		
 			escreva("====================\n")
+			escreva("Qual a cor do Kart?\n")
 			escreva("[1] - Vermelho\n")
 			escreva("[2] - Branco\n")
 			escreva("[3] - Azul\n")
 			escreva("[4] - Verde\n")
 			escreva("[5] - Amarelo\n")
 			escreva("[6] - Laranja\n")
-			escreva("[7] - Digite Enter para proseguir\n")
-			escreva("[8] - |>>> Próxima Página >>>\n")
+			escreva("[7] - Cinza\n")
+			escreva("[8] - |>>> Aperte Enter para Próxima Página >>>\n")
 			escreva("====================\n")
 
 			
@@ -353,14 +351,14 @@ programa {
 
 			
 			escreva("====================\n")
-			escreva("[8] - Cinza\n")
-			escreva("[9] - Vinho\n")
-			escreva("[10] - Ciano\n")
-			escreva("[11] - Marrom\n")
-			escreva("[12] - Rosa\n")
-			escreva("[13] - Roxo\n")
-			escreva("[14] - Bege\n")
-		    escreva("[15] - Digite enter para retorna\n")
+			escreva("[8] - Vinho\n")
+			escreva("[9] - Ciano\n")
+			escreva("[10] - Marrom\n")
+			escreva("[11] - Rosa\n")
+			escreva("[12] - Roxo\n")
+			escreva("[13] - Bege\n")
+			escreva("[14] - Preto\n")
+			escreva("[15] - Aperte Enter para retornar\n")
 			escreva("====================\n")
 
 		
