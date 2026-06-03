@@ -409,17 +409,22 @@ programa {
 	
 	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i){         
 				inteiro karts
-				cadeia enter
+				
 				                 
                     para(karts=1;karts<16;karts++){
                     	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts])  
                     	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])         
                     }
-                    escreva("\nDigite ENTER para retornar ao menu ")
-                    leia(enter)
-                    limpa()
-                    escreva_menu( modelo , cores,locacao, i)
+                    retornar_ao_menu(modelo,cores,locacao,i)
                     
+	}
+	funcao retornar_ao_menu(cadeia modelo[],cadeia cores[],real locacao [], inteiro i){
+		 cadeia enter
+		 
+		 escreva("\nDigite ENTER para retornar ao menu ")
+           leia(enter)
+           limpa()
+           escreva_menu( modelo , cores,locacao, i)
 	}
    
 	funcao listar_karts_locados(){
