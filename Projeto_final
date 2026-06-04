@@ -494,12 +494,62 @@ programa {
    	
    	}
    
-    	funcao locacao_de_circurto(){ //circurtokkkkkkkk
+    	funcao locacao_de_circurto(){ //circuRtokkkkkkkk
     	
    	}
    
-    	funcao atualizar_dia(){
-    	
+    	funcao atualizar_dia(){ //RNG
+    		inteiro valor, oficina ,z=0 //Dia
+    		
+    		escreva("Atualizando dia...")
+    			valor = u.sorteia(0, 20)
+    			
+    		se(valor>=13){ //38,10% Chance de nenhum Kart entrar em manutenção!
+    			escreva("Passamos o", z=z+1, "º dia!")
+    			escreva("JACKPOT!")
+    			escreva("Nenhum Kart foi para oficina!")
+    			
+    		}senao se (valor<13 e valor>6){ //AQUI É O COMUM [28,57%]
+    			//Karts de 125cc para baixo devem entrar em manutenção!
+    			oficina = u.sorteia(1,15)
+			//Abaixo colocamos 3 chances, de ser 1, 4, ou todos os carros de 125cc para baixo entrar em manutenção
+			//vai depender de quantos de 125cc para baixo foram cadastrados.
+    			se(oficina<3){ 
+    				escreva("1 Kart somente entrou em manutenção!")
+    				
+    			}senao se(oficina<7 e oficina>=3){
+    				escreva("X karts entraram em manutenção!\n")
+    				escreva("=========[!] Lista [!]=========\n")
+				//AQUI COLOCAMOS OS KARTS 125CC PARA BAIXO SORTEADOS E PASSAMOS O STATUS
+				//DOS KARTS QUE FORAM SORTEADOS PARA (MANUTENÇÃO)
+    				escreva("===============================\n")
+    				u.aguarde(3000)
+    				
+    			}senao se(oficina<=15 e oficina>=9){
+    				escreva("X karts entraram em manutenção!\n")
+    				escreva("=========[!] Lista [!]=========\n")
+				//AQUI COLOCAMOS OS KARTS 160CC e até 125CC PARA BAIXO SORTEADOS E PASSAMOS O STATUS
+				//DOS KARTS QUE FORAM SORTEADOS PARA (MANUTENÇÃO)
+				escreva("125cc 'só de teste esse escreva' \n")
+    				escreva("===============================\n")
+    				u.aguarde(3000)
+    			}
+    			
+    		}senao se(valor<=6 e valor>=3){ //19,05% Aqui já é incomum
+    				escreva("X karts entraram em manutenção!\n")
+    				escreva("=========[!] Lista [!]=========\n")
+				escreva("200cc 'só de teste esse escreva' \n")
+    				escreva("===============================\n")
+    				u.aguarde(3000)
+    		}
+    		
+    		senao se(valor<=2){ //Aqui a chance é de [14,29%], Manutencao mais rara para 270cc pra cima
+    			escreva("X karts entraram em manutenção!\n")
+    				escreva("=========[!] Lista [!]=========\n")
+				escreva("270 'só de teste esse escreva' \n")
+    				escreva("===============================\n")
+    				u.aguarde(3000)
+    		}
    	}
    
     	funcao inicio(){
