@@ -449,10 +449,14 @@ programa {
 	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[]){         
 				inteiro karts
 				
-				                 
+				se( modelo[1] == " "){
+				escreva("\nNao ha nenhum kart cadastrado ate o momento")	                 
+				}
                     para(karts=1;karts<16;karts++){
+                    	se(modelo[karts] != " "){
                     	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
-                    	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])         
+                    	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])     
+                    	}    
                     }
                     retornar_ao_menu(modelo,cores,locacao,i,cc)
                     
@@ -617,7 +621,7 @@ programa {
    	}
    
     	funcao inicio(){
-    		cadeia modelo[16]
+    		cadeia modelo[16] = {" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "}
    		cadeia cores[16]
    		real locacao[16]
    		real cc[16]
