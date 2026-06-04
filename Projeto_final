@@ -1,4 +1,4 @@
-	//Vi que a gente ainda tá preso no início do projeto, então vou dar um guia pra gente avançar.
+//Vi que a gente ainda tá preso no início do projeto, então vou dar um guia pra gente avançar.
 	
 	//Ao atualizar o dia, devemos utilizar a estratégia de RNG (random number generator), basicamente é a chance
 	//de algo acontecer, ao atualizar o dia, os karts locados mais baratos devem ter mais chances para parar 
@@ -136,7 +136,7 @@ programa {
 		     pare
 
                caso 3:
-		 	   listar_karts_locados()
+		 	   listar_karts_locados(modelo,cores,locacao,i,cc)
 		     pare
 
 		     caso 4:
@@ -469,9 +469,27 @@ programa {
            limpa()
            escreva_menu( modelo , cores,locacao, i, cc)
 	}
-   funcao listar_karts_locados(){
+   funcao listar_karts_locados(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[]){
      //A opção listar karts locados deve listar apenas os nomes dos karts que já estão
-	//locados por algum cliente qualquer. 	
+	//locados por algum cliente qualquer. 
+
+
+
+	//ainda e preciso saber diferencias se o kart esta locado ou nao
+
+
+		inteiro karts
+				
+				se( modelo[1] == " "){
+				escreva("\nNao ha nenhum kart cadastrado ate o momento")	                 
+				}
+                    para(karts=1;karts<16;karts++){
+                    	se(modelo[karts] != " "){
+                    	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
+                    	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])     
+                    	}    
+                    }
+                    retornar_ao_menu(modelo,cores,locacao,i,cc)
     	}                              
 
     	funcao listar_karts_em_manutencao(){
