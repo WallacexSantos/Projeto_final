@@ -164,7 +164,7 @@ programa {
 		     pare
 		
 		     caso 10:
-		        locacao_de_circurto()
+		        locacao_de_circurto(modelo,cores,locacao,i,cc)
 		     pare
 		
 		     caso 11:
@@ -560,11 +560,12 @@ programa {
  	//Considere que o lucro é 30% da receita gerada por um kart. 
    	}
    
-    	funcao locacao_de_circurto(){ //circuRtokkkkkkkk
+    	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[]){ //circuRtokkkkkkkk
     	//Locação de circuito – O valor de locação do circuito deve previamente ser cadastrado.
 	//Caso o circuito seja locado, haverá o acréscimo de 70% do valor de sua locação à
 	//receita diária. 
-	inteiro opcao=0
+	cadeia opcao
+	logico menu = verdadeiro
 
 	//Para wallace: Mano, falta arrumar para voltar para o menu abaixo e voltar para a pista anterior, essa de 
 	//voltar para anterior aparece a partir da segunda pista, vamos fazer assim, olha o comentario de baixo que é importante.
@@ -573,6 +574,7 @@ programa {
 	//uma baixa, uma mais ou menos e uma boa, mas dependendo do tempo, sim, podemos colocar um cronometro aleatorio, se a volta de algum kart
 	//for a mais rápida, ele vai ter mais ganhos.
 	
+		enquanto(menu == verdadeiro){
 		escreva("=======================[!] CIRCUITOS [!]======================\n")
 		escreva("=================[!] GIRBERTIS ALGORITMIS [!]=================\n")
 		u.aguarde(1000)
@@ -619,11 +621,15 @@ programa {
 		escreva("* - Preço de locação: R$500.00 \n")
 		u.aguarde(50)
 		escreva("==============================================================\n")
-		escreva("* - [1] Próxima Pista\n* - [2] Menu\n")
+		escreva("* - [ENTER] Próxima Pista\n* - [2] Menu\n")
 			leia(opcao)
-
-		escolha(opcao){
-			caso 1:
+			se (opcao == "2"){
+			escreva_menu(modelo,cores,locacao,i,cc)
+			menu = falso
+			}
+			
+		se(menu == verdadeiro){
+	
 			limpa()
 			escreva("=======================[!] CIRCUITOS [!]======================\n")
 			escreva("==================[!] ATIRATORIS BIZONHUS [!]=================\n\n")
@@ -683,14 +689,16 @@ programa {
 			escreva("* - Preço de locação: R$820.40 \n")
 			u.aguarde(50)
 			escreva("==============================================================\n")
-			escreva("* - [1] Próxima Pista\n* - [2] Pista Anterior\n* - [3] Menu\n")
+			escreva("* - [ENTER] Próxima Pista=\n* - [2] Menu\n")
 				leia(opcao)
-
-			caso 2:
+			 se (opcao == "2"){
+			escreva_menu(modelo,cores,locacao,i,cc)
+			menu = falso
+			}
 			
+			}
+			se(menu == verdadeiro){
 
-			escolha(opcao){
-				caso 1:
 			limpa()
 			escreva("=======================[!] CIRCUITOS [!]======================\n")
 			escreva("======================[!] NÜRBURGRING [!]=====================\n\n")
@@ -770,12 +778,16 @@ programa {
 			escreva("* - Preço de locação: R$750.90 \n")
 			u.aguarde(50)
 			escreva("==============================================================\n")
-			escreva("* - [1] Próxima Pista\n* - [2] Pista Anterior\n* - [3] Menu\n")
+			escreva("* - [ENTER] Próxima Pista\n* - [2] Menu\n")
 				leia(opcao)
+			se (opcao == "2"){
+			escreva_menu(modelo,cores,locacao,i,cc)
+			menu = falso
+			}
+			
+			}
 
-			caso 2: //menu
-
-		}
+		
 							
 		}
    	}
