@@ -1,8 +1,13 @@
-	//Idéia
-	//Se a gente conseguisse acabar o trabalho rápido, poderiamos adicionar
-	//depois um sistema de cilindradas (cc) ou (cv) cavalos, força do Kart, de 240cc a 620cc,
-	//Quanto maior a força, mais caro será a manutenção e para alugar, mas com maior chances de lucro.
-	//Vai que o professor valoriza mais a nota
+	//Vi que a gente ainda tá preso no início do projeto, então vou dar um guia pra gente avançar.
+	
+	//Ao atualizar o dia, devemos utilizar a estratégia de RNG (random number generator), basicamente é a chance
+	//de algo acontecer, ao atualizar o dia, os karts locados mais baratos devem ter mais chances para parar 
+	//na oficina, e um limite menor nos ganhos diários, os mais potentes devem ter um limite maior de ganhos e RNG
+	//menor de parar na oficina.
+
+	//Não é na ordem do menu que temos que fazer as coisas, pois a opcão de ver karts locados [3] só funciona se já
+	//tivessemos feito a de alugar um kart [6]. Não foquem em fazer função ficar bonita ou tentar diminuir código, pois gasta muito tempo e nõo
+	//evolui o projeto, já que teriamos que entregar no dia 17 e pode ser que demorariamos muito nas outras opções.
 
 programa {
 	inclua biblioteca Util --> u 
@@ -489,7 +494,7 @@ programa {
    	
    	}
    
-    	funcao locacao_de_circurto(){
+    	funcao locacao_de_circurto(){ //circurtokkkkkkkk
     	
    	}
    
