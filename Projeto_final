@@ -193,10 +193,44 @@ programa {
 		modelo[i] = mod
 		
 		escreva("qual valor de locação deste Kart? ")
-		leia(locacao[i])
+			leia(locacao[i])
 		
 		//criar menu para escolher cc
-		leia(cc[i])
+		//Vale lembrar que o valor da locação não deve ser fixo, pois não faz sentido ter uma locação
+		//barata em um carro de alta potência.
+
+		//Vou explicar por qual motivo eu coloquei 270cc não recomendado, de 80cc a 125cc sõa karts que merecem ter
+		//uma locação mais custo benefício, mas pode ser chatos na manutenção (maior chance de quebra), o 270cc deve
+		//ser mais caro na locação, pois pode dar maiores lucros nos ganhos e menos manutenção (Qualidade)
+
+		//No momento, eu[Mikael] to trabalhando nisso, vcs podem focar em outras nas outras opções.
+		escreva("========Potência========\n")
+		escreva("* [1] - 80cc\n")
+		escreva("* [2] - 100cc\n")
+		escreva("* [3] - 125cc\n")
+		escreva("* [4] - 160cc\n")
+		escreva("* [5] - 270cc [NÃO RECOMENDADO!]\n")
+		escreva("========================\n")
+			leia(alternativa)
+
+		escolha(alternativa){
+			caso 1:
+			cc[i] = 80.0
+
+			caso 2:
+			cc[i] = 100.0
+
+			caso 3:
+			cc[i] = 125.0
+
+			caso 4:
+			cc[i] = 160.0
+
+			caso 5:
+			cc[i] = 270.0
+			
+		}
+			
 		
 		limpa()			
 		enquanto(menu_cor == verdadeiro){
@@ -412,7 +446,7 @@ programa {
 				
 				                 
                     para(karts=1;karts<16;karts++){
-                    	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts])  
+                    	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
                     	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])         
                     }
                     retornar_ao_menu(modelo,cores,locacao,i,cc)
