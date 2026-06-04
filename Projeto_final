@@ -144,7 +144,7 @@ programa {
 		     pare
 		
 		     caso 5:
-			   atualizar_dados_do_kart()
+			   atualizar_dados_do_kart(modelo,cores,locacao,i,cc)
 		     pare
 		
 		     caso 6:
@@ -290,12 +290,7 @@ programa {
       				}
       				senao se(opcao == "13"){
          					cor = 13
-      				}
-      				senao{
-         					cor = 14
-              }
-      				}
-	  			}
+      		}
 	 		}
 			escolha(cor){
 				 caso 1:
@@ -382,7 +377,12 @@ programa {
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
 				pare
 			}
-			
+					}
+      				senao{
+         					cor = 14
+              }
+      				}
+	  			
 			
 	}
 
@@ -447,12 +447,11 @@ programa {
 	}
 	
 	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[]){         
-				inteiro karts
 				
 				                 
-                    para(karts=1;karts<16;karts++){
-                    	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
-                    	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])         
+                    para(i=1;i<16;i++){
+                    	escreva("\nKart Numero: ",i," Modelo: ", modelo[i], " Potência ", cc[i])  
+                    	escreva("\n Cor: ", cores[i]," valor R$ ",locacao[i])         
                     }
                     retornar_ao_menu(modelo,cores,locacao,i,cc)
                     
@@ -467,35 +466,100 @@ programa {
 	}
    
 	funcao listar_karts_locados(){
-     	
+     //A opção listar karts locados deve listar apenas os nomes dos karts que já estão
+	//locados por algum cliente qualquer. 	
     	}                              
 
     	funcao listar_karts_em_manutencao(){
 
    	}
 	
-    	funcao atualizar_dados_do_kart(){ 
+    	funcao atualizar_dados_do_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[]){
+	//A opção Atualizar dados do Kart deve permitir ao usuário atualizar um ou todos os
+	//dados do kart escolhido. Quando o dado atualizado muda de “em manutenção” para
+	//usável, o valor da manutenção atual deve ser agregado ao valor anterior.
+    		 	
+	//aqui podemos fazer uma mescla da opcao de listar karts e a opcao de cadastrar karts, primeiro vamos listar os karts e pedir para o usuario escolher qual ele quer atualizar e em seguida vamos chamar novamente as opcoes de cadastrar kart
+		cadeia opcao
+		inteiro chamar_opcao
 
+		escreva("\nQual kart voce deseja atualizar os dados? ")
+	
+		para(i=1;i<16;i++){
+               escreva("\nKart Numero: ",i," Modelo: ", modelo[i])
+           }
+               escreva("\nQual informacao voce deseja atualizar? ")
+               escreva("\n[1] Modelo ")
+               escreva("\n[2] Valor de locacao")
+               escreva("\n[3] CC ")
+               escreva("\n[4] Cor ")
+               escreva("\n[5] Status ")
+               escreva("\n[6] Todas as informacoes ")
+			leia(opcao)
+			
+			enquanto(opcao !="1" ou opcao !="2" ou opcao !="3" ou opcao !="4" ou opcao !="5" ou opcao !="6"){
+			 escreva("\nOpcao invalida, digite [1] Modelo, digite [2] Valor de locacao, digite [3] CC, digite [4] Cor, [5] Status, [6] Todas as informacoes")
+			 leia(opcao)
+			}
+			se(opcao =="1"){
+					chamar_opcao = 1
+      			}
+      			senao se(opcao == "2"){
+					chamar_opcao = 2
+      			}
+      			senao se(opcao == "3"){
+         				chamar_opcao = 3
+      			}
+      			senao se(opcao == "4"){
+         				chamar_opcao = 4
+      			}
+      			senao se(opcao == "5"){
+         				chamar_opcao = 5
+      			}
+      			senao{
+         				chamar_opcao = 6
+      			}
+
+			escolha(chamar_opcao){
+				
+			}
+
+			
+               retornar_ao_menu(modelo,cores,locacao,i,cc)
+
+
+
+	
    	}
    
     	funcao alugar_um_kart(){
-
+	//A opção Alugar um kart deve possibilitar ao usuário escolher dentre a lista de karts
+	//disponíveis e marcar como locado, o valor de receita diária e lucro devem ser
+	//armazenados para a outra funcionalidade.
    	}  
   
     	funcao devolver_um_kart(){
-   	
+   	//A opção devolver um kart deve possibilitar ao usuário escolher dentre a lista de karts
+	//locados e marcar como disponível.
+
    	}
 
     	funcao kart_que_gerou_mais_receita(){
-   	
+   	//A opção kart que mais gerou ganhos deve imprimir todas as informações sobre o kart
+	//mais locado durante a execução do programa.
    	}
 
     	funcao receita_e_lucro_por_dia(){
-   	
+   	//A opção “Receita e lucro do dia, considerando karts locados” deve mostrar na tela o
+	//total de receita que será gerado naquele dia caso os karts locados permaneçam nesse
+	//status. Alterar um kart para locado ou devolvido impactará nesse resultado.
+ 	//Considere que o lucro é 30% da receita gerada por um kart. 
    	}
    
     	funcao locacao_de_circurto(){ //circuRtokkkkkkkk
-    	
+    	//Locação de circuito – O valor de locação do circuito deve previamente ser cadastrado.
+	//Caso o circuito seja locado, haverá o acréscimo de 70% do valor de sua locação à
+	//receita diária. 
    	}
    
     	funcao atualizar_dia(){ //RNG
