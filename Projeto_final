@@ -290,7 +290,12 @@ programa {
       				}
       				senao se(opcao == "13"){
          					cor = 13
-      		}
+      				}
+      				senao{
+         					cor = 14
+              }
+      				}
+	  			}
 	 		}
 			escolha(cor){
 				 caso 1:
@@ -377,12 +382,7 @@ programa {
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
 				pare
 			}
-					}
-      				senao{
-         					cor = 14
-              }
-      				}
-	  			
+			
 			
 	}
 
@@ -447,11 +447,12 @@ programa {
 	}
 	
 	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[]){         
+				inteiro karts
 				
 				                 
-                    para(i=1;i<16;i++){
-                    	escreva("\nKart Numero: ",i," Modelo: ", modelo[i], " Potência ", cc[i])  
-                    	escreva("\n Cor: ", cores[i]," valor R$ ",locacao[i])         
+                    para(karts=1;karts<16;karts++){
+                    	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
+                    	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])         
                     }
                     retornar_ao_menu(modelo,cores,locacao,i,cc)
                     
@@ -464,8 +465,7 @@ programa {
            limpa()
            escreva_menu( modelo , cores,locacao, i, cc)
 	}
-   
-	funcao listar_karts_locados(){
+   funcao listar_karts_locados(){
      //A opção listar karts locados deve listar apenas os nomes dos karts que já estão
 	//locados por algum cliente qualquer. 	
     	}                              
@@ -497,7 +497,7 @@ programa {
                escreva("\n[6] Todas as informacoes ")
 			leia(opcao)
 			
-			enquanto(opcao !="1" ou opcao !="2" ou opcao !="3" ou opcao !="4" ou opcao !="5" ou opcao !="6"){
+			enquanto(opcao !="1" e opcao !="2" e opcao !="3" e opcao !="4" e opcao !="5" e opcao !="6"){
 			 escreva("\nOpcao invalida, digite [1] Modelo, digite [2] Valor de locacao, digite [3] CC, digite [4] Cor, [5] Status, [6] Todas as informacoes")
 			 leia(opcao)
 			}
