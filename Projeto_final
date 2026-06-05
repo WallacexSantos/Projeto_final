@@ -128,7 +128,12 @@ programa {
 		escolha(chamar_funcao)
 		{
 		     caso 1: 
-                  cadastro_kart(modelo,cores, locacao, i,cc, disponivel)
+                  cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel)
+                  cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel)
+                  cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel)
+			   cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel)
+                  
+                  
 		     pare
 		    	
 		     caso 2:
@@ -177,12 +182,12 @@ programa {
 		}
 	}
 
-  	funcao cadastro_kart (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[]) {
+  	funcao cadastro_kart_modelo (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[]) {
   	
-    		cadeia mod,opcao
+    		cadeia opcao,mod
     		real locacaokart = 0.0
-		inteiro alternativa=0, cor=1, cor2,j=0, l=0,opcao_=0
-		logico menu_cor = verdadeiro
+		inteiro alternativa=0,j=0, l=0,opcao_=0
+
 		//Karts cadastrados irão aparecer aqui, no momento deixei aguarde 0 para nao atrapalhar
 		escreva("====Garagem dos Karts====")
 		para(j=0;j<15;j++){
@@ -197,10 +202,13 @@ programa {
 		i = i + 1
 		modelo[i] = mod
 		disponivel[i] = verdadeiro
-		
+  		}
+
+  	funcao cadastro_kart_locacao  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[]) {
 		escreva("qual valor de locação deste Kart? ")
 		leia(locacao[i])
-		
+
+		inteiro alternativa = 0
 		//criar menu para escolher cc
 		//Vale lembrar que o valor da locação não deve ser fixo, pois não faz sentido ter uma locação
 		//barata em um carro de alta potência.
@@ -210,6 +218,11 @@ programa {
 		//ser mais caro na locação, pois pode dar maiores lucros nos ganhos e menos manutenção (Qualidade)
 
 		//No momento, eu[Mikael] to trabalhando nisso, vcs podem focar em outras nas outras opções.
+  	}
+	funcao cadastro_kart_cc  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[]) {
+
+		inteiro alternativa
+		
 		escreva("========Potência========\n")
 		escreva("* [1] - 80cc\n")
 		escreva("* [2] - 100cc\n")
@@ -218,7 +231,7 @@ programa {
 		escreva("* [5] - 270cc [NÃO RECOMENDADO!]\n")
 		escreva("========================\n")
 		leia(alternativa)
-
+	
 		escolha(alternativa){
 			caso 1:
 			cc[i] = 80.0
@@ -236,8 +249,13 @@ programa {
 			cc[i] = 270.0
 			
 		}
-			
-		
+}
+  		
+  	funcao cadastro_kart_cor  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[]) {
+  		
+		logico menu_cor = verdadeiro
+		cadeia opcao
+		inteiro cor=1
 		limpa()			
 		enquanto(menu_cor == verdadeiro){
           	menu_cores_pagina_1()
@@ -301,85 +319,85 @@ programa {
 			escolha(cor){
 				 caso 1:
 				 	cores[i] = "Vermelho"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 				
 				caso 2:
 					cores[i] = "Branco"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 				                              
 				caso 3:
 					cores[i] = "Azul"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 				
 				caso 4:
 					cores[i] = "Verde"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 
 				caso 5:
 					cores[i] = "Amarelo"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 
 				caso 6:
 					cores[i] = "Laranja"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 				
 				caso 7:
 					cores[i] = "Cinza"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 				caso 8:
 					cores[i] = "Vinho"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 			     caso 9:
 					cores[i] = "Ciano"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 				caso 10:
 					cores[i] = "Marrom"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 				caso 11:
 					cores[i] = "Rosa"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 				caso 12:
 					cores[i] = "Roxo"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 				
 				caso 13:
 					cores[i] = "Bege"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 				
 				caso 14:
 					cores[i] = "Preto"
-					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+					escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 			}
@@ -437,7 +455,7 @@ programa {
 			}
 									
 			 se(opcao=="1"){	
-				  cadastro_kart(modelo,cores,locacao,i,cc, disponivel)
+				  cadastro_kart_modelo(modelo,cores,locacao,i,cc, disponivel)
 			 }
 			 senao se(opcao=="2"){
 				  escreva_menu( modelo , cores,locacao,i,cc, disponivel)
@@ -914,6 +932,7 @@ programa {
     	funcao inicio(){
     		cadeia modelo[16] = {" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "}
    		cadeia cores[16]
+   		cadeia mod
    		real locacao[16]
    		real cc[16]
    		inteiro i = 0
