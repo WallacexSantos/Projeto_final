@@ -33,7 +33,7 @@ programa {
  	}
 
 	
-	funcao escreva_menu(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc []){
+	funcao escreva_menu(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[]){
 		cadeia opcao = " "
 		logico menu = verdadeiro
 		inteiro chamar_funcao = 1
@@ -94,7 +94,7 @@ programa {
 	  			}
 	 		}
 		}
-	hub(chamar_funcao, modelo, cores, locacao, i,cc)
+	hub(chamar_funcao, modelo, cores, locacao, i,cc, disponivel)
 	}
 
   	funcao pagina_1(){
@@ -123,28 +123,28 @@ programa {
 		escreva("========================================\n")
   	}
 
-	funcao hub(inteiro chamar_funcao,cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[]){
+	funcao hub(inteiro chamar_funcao,cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[]){
 		
 		escolha(chamar_funcao)
 		{
 		     caso 1: 
-                  cadastro_kart(modelo,cores, locacao, i,cc)
+                  cadastro_kart(modelo,cores, locacao, i,cc, disponivel)
 		     pare
 		    	
 		     caso 2:
-		        listar_karts_disponiveis(modelo,cores,locacao,i,cc)
+		        listar_karts_disponiveis(modelo,cores,locacao,i,cc, disponivel)
 		     pare
 
                caso 3:
-		 	   listar_karts_locados(modelo,cores,locacao,i,cc)
+		 	   listar_karts_locados(modelo,cores,locacao,i,cc, disponivel)
 		     pare
 
 		     caso 4:
-		 	   listar_karts_em_manutencao()
+		 	   listar_karts_em_manutencao(modelo,cores,locacao,i,cc, disponivel)
 		     pare
 		
 		     caso 5:
-			   atualizar_dados_do_kart(modelo,cores,locacao,i,cc)
+			   atualizar_dados_do_kart(modelo,cores,locacao,i,cc,disponivel)
 		     pare
 		
 		     caso 6:
@@ -164,11 +164,11 @@ programa {
 		     pare
 		
 		     caso 10:
-		        locacao_de_circurto(modelo,cores,locacao,i,cc)
+		        locacao_de_circurto(modelo,cores,locacao,i,cc, disponivel)
 		     pare
 		
 		     caso 11:
-		        atualizar_dia()
+		        atualizar_dia(modelo , cores, locacao, i, cc, disponivel)
 		     pare
 		
 		     caso 12:
@@ -177,7 +177,7 @@ programa {
 		}
 	}
 
-  	funcao cadastro_kart (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[]) {
+  	funcao cadastro_kart (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[]) {
   	
     		cadeia mod,opcao
     		real locacaokart = 0.0
@@ -196,9 +196,10 @@ programa {
 		leia(mod)
 		i = i + 1
 		modelo[i] = mod
+		disponivel[i] = verdadeiro
 		
 		escreva("qual valor de locação deste Kart? ")
-			leia(locacao[i])
+		leia(locacao[i])
 		
 		//criar menu para escolher cc
 		//Vale lembrar que o valor da locação não deve ser fixo, pois não faz sentido ter uma locação
@@ -216,7 +217,7 @@ programa {
 		escreva("* [4] - 160cc\n")
 		escreva("* [5] - 270cc [NÃO RECOMENDADO!]\n")
 		escreva("========================\n")
-			leia(alternativa)
+		leia(alternativa)
 
 		escolha(alternativa){
 			caso 1:
@@ -301,85 +302,85 @@ programa {
 				 caso 1:
 				 	cores[i] = "Vermelho"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 				
 				caso 2:
 					cores[i] = "Branco"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 				                              
 				caso 3:
 					cores[i] = "Azul"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 				
 				caso 4:
 					cores[i] = "Verde"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 
 				caso 5:
 					cores[i] = "Amarelo"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 
 				caso 6:
 					cores[i] = "Laranja"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare 
 				
 				caso 7:
 					cores[i] = "Cinza"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 				caso 8:
 					cores[i] = "Vinho"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 			     caso 9:
 					cores[i] = "Ciano"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 				caso 10:
 					cores[i] = "Marrom"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 				caso 11:
 					cores[i] = "Rosa"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 
 				caso 12:
 					cores[i] = "Roxo"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 				
 				caso 13:
 					cores[i] = "Bege"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 				
 				caso 14:
 					cores[i] = "Preto"
 					escreva("Kart modelo [",mod,"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
-					cadastrar_mais_karts(modelo,cores,locacao,i,cc)
+					cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 				pare
 			}
 			
@@ -423,7 +424,7 @@ programa {
 		
 	}
 
-	funcao cadastrar_mais_karts(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[]){
+	funcao cadastrar_mais_karts(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel []){
 			cadeia opcao
 
 			u.aguarde(1000)
@@ -436,17 +437,17 @@ programa {
 			}
 									
 			 se(opcao=="1"){	
-				  cadastro_kart(modelo,cores,locacao,i,cc)
+				  cadastro_kart(modelo,cores,locacao,i,cc, disponivel)
 			 }
 			 senao se(opcao=="2"){
-				  escreva_menu( modelo , cores,locacao,i,cc)
+				  escreva_menu( modelo , cores,locacao,i,cc, disponivel)
 			 }
 						
 			 limpa()
 	 
 	}
 	
-	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[]){         
+	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel []){         
 				inteiro karts
 				
 				se( modelo[1] == " "){
@@ -454,22 +455,24 @@ programa {
 				}
                     para(karts=1;karts<16;karts++){
                     	se(modelo[karts] != " "){
-                    	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
-                    	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])     
+                    		se(disponivel[karts] == verdadeiro){
+                    			escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
+                    			escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])  
+                    		}
                     	}    
                     }
-                    retornar_ao_menu(modelo,cores,locacao,i,cc)
+                    retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
                     
 	}
-	funcao retornar_ao_menu(cadeia modelo[],cadeia cores[],real locacao [], inteiro i,real cc[]){
+	funcao retornar_ao_menu(cadeia modelo[],cadeia cores[],real locacao [], inteiro i,real cc[], logico disponivel[]){
 		 cadeia enter
 		 
 		 escreva("\nDigite ENTER para retornar ao menu ")
            leia(enter)
            limpa()
-           escreva_menu( modelo , cores,locacao, i, cc)
+           escreva_menu( modelo , cores,locacao, i, cc, disponivel)
 	}
-   funcao listar_karts_locados(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[]){
+   funcao listar_karts_locados(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel []){
      //A opção listar karts locados deve listar apenas os nomes dos karts que já estão
 	//locados por algum cliente qualquer. 
 
@@ -489,22 +492,40 @@ programa {
                     	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])     
                     	}    
                     }
-                    retornar_ao_menu(modelo,cores,locacao,i,cc)
+                    retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
     	}                              
 
-    	funcao listar_karts_em_manutencao(){
+    	funcao listar_karts_em_manutencao(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel[]){
+    		inteiro karts
+    		se( modelo[1] == " "){
+			escreva("\nNao ha nenhum kart cadastrado ate o momento")
+			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)	                 
+		}
+		para(karts=1;karts<16;karts++){
+          	se(modelo[karts] != " "){
+				se(disponivel[karts] == falso){
+					escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
+                    	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts], " - Em manutenção")  
+                    }
+			}    
+		}
+		
+		
 
    	}
 	
-    	funcao atualizar_dados_do_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[]){
+    	funcao atualizar_dados_do_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel []){
 	//A opção Atualizar dados do Kart deve permitir ao usuário atualizar um ou todos os
 	//dados do kart escolhido. Quando o dado atualizado muda de “em manutenção” para
 	//usável, o valor da manutenção atual deve ser agregado ao valor anterior.
     		 	
 	//aqui podemos fazer uma mescla da opcao de listar karts e a opcao de cadastrar karts, primeiro vamos listar os karts e pedir para o usuario escolher qual ele quer atualizar e em seguida vamos chamar novamente as opcoes de cadastrar kart
 		cadeia opcao
-		inteiro chamar_opcao
-
+		inteiro chamar_opcao, karts, atualizar
+		se( modelo[1] == " "){
+			escreva("\nNao ha nenhum kart cadastrado ate o momento")
+			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)	                 
+		}
 		escreva("\nQual kart voce deseja atualizar os dados? ")
 	
 		para(i=1;i<16;i++){
@@ -543,11 +564,26 @@ programa {
       			}
 
 			escolha(chamar_opcao){
-				
+				caso 1: //modelo
+					para(karts=1;karts<16;karts++){
+                    		se(modelo[karts] != " "){
+                    				escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
+                    				escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])                    			
+                    		}
+                    	}
+					escreva("\nQual Kart você quer atualizar o modelo? (Digite o número)")
+					leia(atualizar)
+                    		enquanto(atualizar<1 ou atualizar>15){
+                    			escreva ("Opcão Incorreta! Digite de 1 a 15!")
+                    			leia(atualizar)
+                    		}
+                    	//modelo[atualizar] = funcao para alterar so o modelo?                    		
+                    	//Reaalmente, vai ter que chamar por funções ne
+					
 			}
 
 			
-               retornar_ao_menu(modelo,cores,locacao,i,cc)
+               retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
 
 
 
@@ -578,7 +614,7 @@ programa {
  	//Considere que o lucro é 30% da receita gerada por um kart. 
    	}
    
-    	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[]){ //circuRtokkkkkkkk
+    	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[]){ //circuRtokkkkkkkk
     	//Locação de circuito – O valor de locação do circuito deve previamente ser cadastrado.
 	//Caso o circuito seja locado, haverá o acréscimo de 70% do valor de sua locação à
 	//receita diária. 
@@ -642,7 +678,7 @@ programa {
 		escreva("* - [ENTER] Próxima Pista\n* - [2] Menu\n")
 			leia(opcao)
 			se (opcao == "2"){
-			escreva_menu(modelo,cores,locacao,i,cc)
+			escreva_menu(modelo,cores,locacao,i,cc, disponivel)
 			menu = falso
 			}
 			
@@ -710,7 +746,7 @@ programa {
 			escreva("* - [ENTER] Próxima Pista=\n* - [2] Menu\n")
 				leia(opcao)
 			 se (opcao == "2"){
-			escreva_menu(modelo,cores,locacao,i,cc)
+			escreva_menu(modelo,cores,locacao,i,cc, disponivel)
 			menu = falso
 			}
 			
@@ -799,7 +835,7 @@ programa {
 			escreva("* - [ENTER] Próxima Pista\n* - [2] Menu\n")
 				leia(opcao)
 			se (opcao == "2"){
-			escreva_menu(modelo,cores,locacao,i,cc)
+			escreva_menu(modelo,cores,locacao,i,cc, disponivel)
 			menu = falso
 			}
 			
@@ -810,9 +846,10 @@ programa {
 		}
    	}
    
-    	funcao atualizar_dia(){ //RNG
-    		inteiro valor, oficina ,z=0 //Dia
-    		
+    	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[]){ //RNG
+    		inteiro valor, oficina ,karts, z=0 //Dia
+
+    		//OBS!!! como iremos identificar qual carro é de quantas cc?
     		escreva("Atualizando dia...")
     			valor = u.sorteia(0, 20)
     			
@@ -826,8 +863,18 @@ programa {
     			oficina = u.sorteia(1,15)
 			//Abaixo colocamos 3 chances, de ser 1, 4, ou todos os carros de 125cc para baixo entrar em manutenção
 			//vai depender de quantos de 125cc para baixo foram cadastrados.
-    			se(oficina<3){ 
+    			se(oficina<3){
+    				 
     				escreva("1 Kart somente entrou em manutenção!")
+				para(karts=1;karts<16;karts++){
+          			se(modelo[karts] != " "){
+						se(disponivel[karts] == verdadeiro e cc[karts] == 80.0){
+							disponivel[karts] = falso
+							karts = 16
+							// COMO AQUI É SOMENTE 1 KART A IR PRA MANUTENÇÃO, ASSIM Q ENTRASSE NESSA OPCAO, ENCERRAVA O PARA. 
+                    		}
+					}    
+				}
     				
     			}senao se(oficina<7 e oficina>=3){
     				escreva("X karts entraram em manutenção!\n")
@@ -870,9 +917,10 @@ programa {
    		real locacao[16]
    		real cc[16]
    		inteiro i = 0
+   		logico disponivel[16]
    		
    		logo()
-		escreva_menu( modelo , cores, locacao, i, cc)
+		escreva_menu( modelo , cores, locacao, i, cc, disponivel)
 		
 	}
 }
