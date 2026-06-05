@@ -551,16 +551,18 @@ programa {
     		 	
 	//aqui podemos fazer uma mescla da opcao de listar karts e a opcao de cadastrar karts, primeiro vamos listar os karts e pedir para o usuario escolher qual ele quer atualizar e em seguida vamos chamar novamente as opcoes de cadastrar kart
 		cadeia opcao
-		inteiro chamar_opcao, karts, atualizar
+		inteiro karts, atualizar
 		se( modelo[1] == " "){
 			escreva("\nNao ha nenhum kart cadastrado ate o momento")
 			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)	                 
 		}
-		escreva("\nQual kart voce deseja atualizar os dados? ")
-	
+		escreva("\nQual kart voce deseja atualizar os dados? ")	
 		para(i=1;i<16;i++){
-               escreva("\nKart Numero: ",i," Modelo: ", modelo[i])
+			se(modelo[i] != " "){
+                escreva("\nKart Numero: ",i," Modelo: ", modelo[i])
+			}
            }
+           leia(i)
                escreva("\nQual informacao voce deseja atualizar? ")
                escreva("\n[1] Modelo ")
                escreva("\n[2] Valor de locacao")
@@ -574,49 +576,34 @@ programa {
 			 escreva("\nOpcao invalida, digite [1] Modelo, digite [2] Valor de locacao, digite [3] CC, digite [4] Cor, [5] Status, [6] Todas as informacoes")
 			 leia(opcao)
 			}
-			se(opcao =="1"){
-					chamar_opcao = 1
+				se(opcao =="1"){
+					 cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel)
+					  escreva("\nDados atualizados com sucesso ")
       			}
       			senao se(opcao == "2"){
-					chamar_opcao = 2
+					cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel)
+					 escreva("\nDados atualizados com sucesso ")
       			}
       			senao se(opcao == "3"){
-         				chamar_opcao = 3
+         				 cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel)
+         				  escreva("\nDados atualizados com sucesso ")
       			}
       			senao se(opcao == "4"){
-         				chamar_opcao = 4
+         				cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel)
+					 escreva("\nDados atualizados com sucesso ")
       			}
       			senao se(opcao == "5"){
-         				chamar_opcao = 5
+         				 escreva("\nDados atualizados com sucesso ")
       			}
       			senao{
-         				chamar_opcao = 6
+         			 	 cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel)
+                  		 cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel)
+                 		 cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel)
+			   		 cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel)
+			   		 escreva("\nDados atualizados com sucesso ")
       			}
-
-			escolha(chamar_opcao){
-				caso 1: //modelo
-					para(karts=1;karts<16;karts++){
-                    		se(modelo[karts] != " "){
-                    				escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
-                    				escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])                    			
-                    		}
-                    	}
-					escreva("\nQual Kart você quer atualizar o modelo? (Digite o número)")
-					leia(atualizar)
-                    		enquanto(atualizar<1 ou atualizar>15){
-                    			escreva ("Opcão Incorreta! Digite de 1 a 15!")
-                    			leia(atualizar)
-                    		}
-                    	//modelo[atualizar] = funcao para alterar so o modelo?                    		
-                    	//Reaalmente, vai ter que chamar por funções ne
-					
-			}
-
 			
                retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
-
-
-
 	
    	}
    
