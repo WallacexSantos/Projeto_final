@@ -573,38 +573,83 @@ programa {
 			leia(opcao)
 			
 			enquanto(opcao !="1" e opcao !="2" e opcao !="3" e opcao !="4" e opcao !="5" e opcao !="6"){
-			 escreva("\nOpcao invalida, digite [1] Modelo, digite [2] Valor de locacao, digite [3] CC, digite [4] Cor, [5] Status, [6] Todas as informacoes")
+			 escreva("\nOpcao invalida, digite [1] Modelo, digite [2] Valor de locacao, digite [3] CC, digite [4] Cor, [5] Status, [6] Todas as informacoes ")
 			 leia(opcao)
 			}
 				se(opcao =="1"){
 					 cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel)
-					  escreva("\nDados atualizados com sucesso ")
+
       			}
       			senao se(opcao == "2"){
 					cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel)
-					 escreva("\nDados atualizados com sucesso ")
+	
       			}
       			senao se(opcao == "3"){
          				 cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel)
-         				  escreva("\nDados atualizados com sucesso ")
+  
       			}
       			senao se(opcao == "4"){
          				cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel)
-					 escreva("\nDados atualizados com sucesso ")
       			}
       			senao se(opcao == "5"){
-         				 escreva("\nDados atualizados com sucesso ")
+         			    atualizar_status(modelo,cores, locacao, i,cc, disponivel)
+         			  
       			}
       			senao{
          			 	 cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel)
                   		 cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel)
                  		 cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel)
 			   		 cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel)
-			   		 escreva("\nDados atualizados com sucesso ")
+			   		 atualizar_status(modelo,cores, locacao, i,cc, disponivel)
+			   		 
       			}
-			
+			escreva("\nDados atualizados com sucesso ")
                retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
 	
+   	}
+
+   	funcao atualizar_status(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel []){
+
+			cadeia opcao
+			
+			escreva("\nStatus atual: ")
+         			    	se(disponivel[i] == verdadeiro){
+         			    		escreva("disponivel")
+         			    		escreva("\nDeseja trocar o status para indisponivel? [1] sim [2] nao ")
+         			    		leia(opcao)
+         			    		enquanto(opcao != "1" e opcao != "2"){
+         			    			escreva("Opcao invalida, digite [1] pata sim para [2] nao ")
+         			    			leia(opcao)
+         			    		}
+         			    		se(opcao == "1"){
+         			    			disponivel[i] = falso
+         			    			escreva("\nDados atualizados com sucesso ")
+               				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
+         			    		}
+         			    		senao{
+         			    			escreva("Status nao foi atualizado ")
+         			    			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
+         			    		}
+         			    	}
+         			    	senao{
+         			    		escreva("indisponivel")
+         			    		escreva("\nDeseja trocar o status para disponivel? [1] sim [2] nao ")
+         			    		leia(opcao)
+         			    		enquanto(opcao != "1" e opcao != "2"){
+         			    			escreva("Opcao invalida, digite [1] pata sim para [2] nao ")
+         			    			leia(opcao)
+         			    		}
+         			    		se(opcao == "1"){
+         			    			disponivel[i] = verdadeiro
+         			    			escreva("\nDados atualizados com sucesso ")
+               				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
+         			    		}
+         			    		senao{
+         			    			escreva("Status nao foi atualizado ")
+         			    			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
+         			    		}
+         			    	}
+   		
    	}
    
     	funcao alugar_um_kart(){
