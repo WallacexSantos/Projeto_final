@@ -190,11 +190,12 @@ programa {
 
 		//Karts cadastrados irão aparecer aqui, no momento deixei aguarde 0 para nao atrapalhar
 		escreva("====Garagem dos Karts====")
-		para(j=0;j<15;j++){
-			escreva(modelo[j]," " ,cores[j], "\n")
-
+		para(j=1;j<16;j++){
+			se(modelo[j] != " "){
+				escreva("\n",modelo[j]," " ,cores[j], "\n")
+			}
 		}
-		escreva("====Cadastrados====")
+		escreva("\n====Cadastrados====")
 		u.aguarde(2000)		
 		limpa()
 		escreva("Qual o modelo do seu Kart?\n>..   ")
@@ -415,7 +416,7 @@ programa {
 
 		
 	funcao kart_cadastrado(cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[]){
-		escreva("Kart modelo [",modelo[i+1],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+		escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 		cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel)
 	}
 
@@ -668,9 +669,161 @@ programa {
 	//A opção Alugar um kart deve possibilitar ao usuário escolher dentre a lista de karts
 	//disponíveis e marcar como locado, o valor de receita diária e lucro devem ser
 	//armazenados para a outra funcionalidade.
-
-			 listar_karts(modelo,cores,locacao,i,cc, disponivel)
-                retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
+		cadeia opcao = " "
+		logico menu = verdadeiro
+		se( modelo[1] == " "){
+			escreva("\nNao ha nenhum kart cadastrado ate o momento")
+			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)	                 
+		}
+		listar_karts(modelo,cores,locacao,i,cc, disponivel)
+		enquanto(menu == verdadeiro){
+			escreva("\nQual Kart Deseja Alugar? (Digite o número do Kart)")
+			leia(opcao)
+			se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6" ou opcao == "7"){
+				menu = falso
+				se(opcao == "1"){
+					se (disponivel [1] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						escreva("\nO Kart n 1 ",modelo[1]," foi alugado por: ", locacao[1])
+						disponivel [1] = falso
+					}
+				}senao se(opcao == "2"){
+					se(modelo[2] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [2] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [2] = falso
+						escreva("O Kart n 2 ",modelo[2]," foi alugado por: ", locacao[2])
+					}
+				}senao se(opcao == "3"){
+					se(modelo[3] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [3] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [3] = falso
+						escreva("O Kart n 3 ",modelo[3]," foi alugado por: ", locacao[3])
+					}
+				}senao se(opcao == "4"){
+					se(modelo[4] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [4] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [4] = falso
+						escreva("O Kart n 4 ",modelo[4]," foi alugado por: ", locacao[4])
+					}
+				}senao se(opcao == "5"){
+					se(modelo[5] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [5] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [5] = falso
+						escreva("O Kart n 5 ",modelo[5]," foi alugado por: ", locacao[5])
+					}
+				}senao se(opcao == "6"){
+					se(modelo[6] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [6] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [6] = falso
+						escreva("O Kart n 6 ",modelo[6]," foi alugado por: ", locacao[6])
+					}
+				}senao se(opcao == "7"){
+					se(modelo[7] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [7] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [7] = falso
+						escreva("O Kart n 7 ",modelo[7]," foi alugado por: ", locacao[7])
+					}
+				}
+			}
+			senao se(opcao == "8" ou opcao == "9" ou opcao == "10" ou opcao == "11" ou opcao == "12" ou opcao == "13" ou opcao == "14" ou opcao == "15"){
+				menu = falso
+				se(opcao == "8"){
+					se(modelo[8] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [8] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [8] = falso
+						escreva("O Kart n 8 ",modelo[8]," foi alugado por: ", locacao[8])
+					}
+				}senao se(opcao == "9"){
+						se(modelo[9] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [9] == falso){
+							escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [9] = falso
+						escreva("O Kart n 9 ",modelo[9]," foi alugado por: ", locacao[9])
+					}
+				}senao se(opcao == "10"){
+						se(modelo[10] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [10] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [10] = falso
+						escreva("O Kart n 10 ",modelo[10]," foi alugado por: ", locacao[10])
+					}
+				}senao se(opcao == "11"){
+						se(modelo[11] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [11] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [11] = falso
+						escreva("O Kart n 11 ",modelo[11]," foi alugado por: ", locacao[11])
+					}
+				}senao se(opcao == "12"){
+						se(modelo[12] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [12] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [12] = falso
+						escreva("O Kart n 12 ",modelo[12]," foi alugado por: ", locacao[12])
+					}
+				}senao se(opcao == "13"){
+						se(modelo[13] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [13] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [13] = falso
+						escreva("O Kart n 13 ",modelo[13]," foi alugado por: ", locacao[13])
+					}
+				}senao se(opcao == "14"){
+					se(modelo[14] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [14] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+					}senao{
+						disponivel [14] = falso
+						escreva("O Kart n 14 ",modelo[14]," foi alugado por: ", locacao[14])
+					}
+				}senao se(opcao == "15"){
+						se(modelo[15] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+						}senao se(disponivel [15] == falso){
+						escreva("\nEste Kart ja foi alugado!!")
+						}senao{
+						disponivel [15] = falso
+						escreva("O Kart n 15 ",modelo[15]," foi alugado por: ", locacao[15])
+						}
+					}
+			}senao{
+				escreva("Digite a opcao corretamente! ")
+			}
+		}
+		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
    	}  
   
     	funcao devolver_um_kart(){
