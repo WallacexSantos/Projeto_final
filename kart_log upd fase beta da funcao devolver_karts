@@ -157,7 +157,7 @@ programa {
 		     pare
 		        
 		     caso 7:
-		        devolver_um_kart()
+		        devolver_um_kart(modelo,cores,locacao,i,cc,disponivel)
 		     pare
 		
 		     caso 8:
@@ -530,7 +530,7 @@ programa {
 				escreva("\nNao ha nenhum kart cadastrado ate o momento")	                 
 				}
                     para(karts=1;karts<16;karts++){
-                    	se(modelo[karts] != " "){
+                    	se(modelo[karts] != " " e disponivel[karts] == falso){
                     	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
                     	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])     
                     	}    
@@ -826,10 +826,178 @@ programa {
 		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
    	}  
   
-    	funcao devolver_um_kart(){
+    	funcao devolver_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[]){
    	//A opção devolver um kart deve possibilitar ao usuário escolher dentre a lista de karts
 	//locados e marcar como disponível.
 
+		cadeia opcao = " "
+		logico menu = verdadeiro
+		inteiro karts
+		
+		se( modelo[1] == " "){
+			escreva("\nNao ha nenhum kart cadastrado ate o momento")
+			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)	                 
+		}
+				
+				se( modelo[1] == " "){
+				escreva("\nNao ha nenhum kart cadastrado ate o momento")	                 
+				}
+                    para(karts=1;karts<16;karts++){
+                    	se(modelo[karts] != " "){
+                    		se(disponivel[karts] == falso){
+                    			escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
+                    			escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])  
+                    		}
+                    	}    
+                    }
+		enquanto(menu == verdadeiro){
+			escreva("\nQual Kart Deseja Devlolver? (Digite o número do Kart)")
+			leia(opcao)
+			se(opcao == "1" ou opcao == "2" ou opcao == "3" ou opcao == "4" ou opcao == "5" ou opcao == "6" ou opcao == "7"){
+				menu = falso
+				se(opcao == "1"){
+					se (disponivel [1] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						escreva("\nO Kart n 1 ",modelo[1]," foi enviado para a devolução por: ", locacao[1])
+						disponivel [1] = verdadeiro
+					}
+				}senao se(opcao == "2"){
+					se(modelo[2] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [2] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [2] = verdadeiro
+						escreva("O Kart n 2 ",modelo[2]," foi enviado para a devolução por: ", locacao[2])
+					}
+				}senao se(opcao == "3"){
+					se(modelo[3] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [3] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [3] = verdadeiro
+						escreva("O Kart n 3 ",modelo[3]," foi enviado para a devolução por: ", locacao[3])
+					}
+				}senao se(opcao == "4"){
+					se(modelo[4] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [4] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [4] = verdadeiro
+						escreva("O Kart n 4 ",modelo[4]," foi enviado para a devolução por", locacao[4])
+					}
+				}senao se(opcao == "5"){
+					se(modelo[5] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [5] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [5] = verdadeiro
+						escreva("O Kart n 5 ",modelo[5]," foi enviado para a devolução por ", locacao[5])
+					}
+				}senao se(opcao == "6"){
+					se(modelo[6] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [6] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [6] = verdadeiro
+						escreva("O Kart n 6 ",modelo[6]," foi enviado para a devolução por ", locacao[6])
+					}
+				}senao se(opcao == "7"){
+					se(modelo[7] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [7] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [7] = verdadeiro
+						escreva("O Kart n 7 ",modelo[7]," foi enviado para a devolução por ", locacao[7])
+					}
+				}
+			}
+			senao se(opcao == "8" ou opcao == "9" ou opcao == "10" ou opcao == "11" ou opcao == "12" ou opcao == "13" ou opcao == "14" ou opcao == "15"){
+				menu = falso
+				se(opcao == "8"){
+					se(modelo[8] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [8] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [8] = verdadeiro
+						escreva("O Kart n 8 ",modelo[8]," foi enviado para a devolução por ", locacao[8])
+					}
+				}senao se(opcao == "9"){
+						se(modelo[9] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [9] == verdadeiro){
+							escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [9] = verdadeiro
+						escreva("O Kart n 9 ",modelo[9]," foi enviado para a devolução por ", locacao[9])
+					}
+				}senao se(opcao == "10"){
+						se(modelo[10] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [10] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [10] = verdadeiro
+						escreva("O Kart n 10 ",modelo[10]," foi enviado para a devolução por ", locacao[10])
+					}
+				}senao se(opcao == "11"){
+						se(modelo[11] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [11] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [11] = verdadeiro
+						escreva("O Kart n 11 ",modelo[11]," foi enviado para a devolução por ", locacao[11])
+					}
+				}senao se(opcao == "12"){
+						se(modelo[12] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [12] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [12] = verdadeiro
+						escreva("O Kart n 12 ",modelo[12]," foi enviado para a devolução por ", locacao[12])
+					}
+				}senao se(opcao == "13"){
+						se(modelo[13] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [13] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [13] = verdadeiro
+						escreva("O Kart n 13 ",modelo[13]," foi enviado para a devolução por ", locacao[13])
+					}
+				}senao se(opcao == "14"){
+					se(modelo[14] == " "){
+						escreva("\nDigite um Kart que esteja Cadastrado!")
+					}senao se(disponivel [14] == verdadeiro){
+						escreva("\nEste Kart ja foi Devolvido!!")
+					}senao{
+						disponivel [14] = verdadeiro
+						escreva("O Kart n 14 ",modelo[14]," foi enviado para a devolução por ", locacao[14])
+					}
+				}senao se(opcao == "15"){
+						se(modelo[15] == " "){
+							escreva("\nDigite um Kart que esteja Cadastrado!")
+						}senao se(disponivel [15] == verdadeiro){
+						escreva("\nEste Kart ja foiDevolvido!!")
+						}senao{
+						disponivel [15] = verdadeiro
+						escreva("O Kart n 15 ",modelo[15]," foi enviado para a devolução por ", locacao[15])
+						}
+					}
+			}senao{
+				escreva("Digite a opcao corretamente para a devolução! ")
+			}
+		}
+		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
    	}
 
     	funcao kart_que_gerou_mais_receita(){
