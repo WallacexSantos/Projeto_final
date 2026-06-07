@@ -153,7 +153,7 @@ programa {
 		     pare
 		
 		     caso 6:
-			   alugar_um_kart()
+			   alugar_um_kart(modelo,cores,locacao,i,cc,disponivel)
 		     pare
 		        
 		     caso 7:
@@ -182,7 +182,7 @@ programa {
 		}
 	}
 
-  	funcao cadastro_kart_modelo (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[]) {
+  	funcao cadastro_kart_modelo (cadeia modelo[],cadeia cores[], real locacao[], inteiro &i,real cc[], logico disponivel[]) {
   	
     		cadeia opcao
     		real locacaokart = 0.0
@@ -252,20 +252,24 @@ programa {
 		}
 		escolha(cilindradas){
 			caso 1:
-			cc[i] = 80.0
+			 cc[i] = 80.0
+			pare
 
 			caso 2:
-			cc[i] = 100.0
+			 cc[i] = 100.0
+			pare
 
 			caso 3:
-			cc[i] = 125.0
+			 cc[i] = 125.0
+			pare
 
 			caso 4:
-			cc[i] = 160.0
+			 cc[i] = 160.0
+			pare
 
 			caso 5:
 			cc[i] = 270.0
-			
+			pare
 		}
 }
   		
@@ -478,6 +482,14 @@ programa {
 	}
 	
 	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel []){         
+			
+			     listar_karts(modelo,cores,locacao,i,cc, disponivel)
+                    retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
+                    
+	}
+
+	funcao listar_karts(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel []){
+		
 				inteiro karts
 				
 				se( modelo[1] == " "){
@@ -491,9 +503,9 @@ programa {
                     		}
                     	}    
                     }
-                    retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
-                    
+		         
 	}
+	
 	funcao retornar_ao_menu(cadeia modelo[],cadeia cores[],real locacao [], inteiro i,real cc[], logico disponivel[]){
 		 cadeia enter
 		 
@@ -652,10 +664,13 @@ programa {
    		
    	}
    
-    	funcao alugar_um_kart(){
+    	funcao alugar_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[]){
 	//A opção Alugar um kart deve possibilitar ao usuário escolher dentre a lista de karts
 	//disponíveis e marcar como locado, o valor de receita diária e lucro devem ser
 	//armazenados para a outra funcionalidade.
+
+			 listar_karts(modelo,cores,locacao,i,cc, disponivel)
+                retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel)
    	}  
   
     	funcao devolver_um_kart(){
@@ -676,7 +691,7 @@ programa {
  	//Considere que o lucro é 30% da receita gerada por um kart. 
    	}
    
-    	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[]){ //circuRtokkkkkkkk
+    	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[]){ //
     	//Locação de circuito – O valor de locação do circuito deve previamente ser cadastrado.
 	//Caso o circuito seja locado, haverá o acréscimo de 70% do valor de sua locação à
 	//receita diária. 
