@@ -131,7 +131,6 @@ programa {
                   cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel,manutencao)
 			   cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel,manutencao)
                   kart_cadastrado(modelo,cores, locacao, i,cc, disponivel,manutencao)
-                  
 		     pare
 		    	
 		     caso 2:
@@ -217,7 +216,6 @@ programa {
 		//No momento, eu[Mikael] to trabalhando nisso, vcs podem focar em outras nas outras opções.
   	}
 	funcao cadastro_kart_cc  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]) {
-
 		cadeia opcao 
 		inteiro cilindradas = 0
 		
@@ -397,8 +395,7 @@ programa {
 	}
 		
 	funcao kart_cadastrado(cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]){
-		
-		escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
+		escreva("Kart modelo [",modelo[i],"], cor [", cores[i] ,"], Valor R$ ",locacao[i],", Potência de [",cc[i],"] criado com sucesso!\n")
 		cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel, manutencao)
 	}
 
