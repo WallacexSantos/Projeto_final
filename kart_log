@@ -1096,7 +1096,7 @@ programa {
 			escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao)
 			menu = falso
 			}
-		   }
+		}
 			
 		se(menu == verdadeiro){
 		se(pista_2 == verdadeiro){
@@ -1173,10 +1173,13 @@ programa {
 			escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao)
 			menu = falso
 			}
-			}
-			}
-			se(menu == verdadeiro){
-			se(pista_3 == verdadeiro){
+			
+		}
+			
+	  }
+			
+		se(menu == verdadeiro){		
+		se(pista_3 == verdadeiro){
 			limpa()
 			escreva("=======================[!] CIRCUITOS [!]======================\n")
 			escreva("======================[!] NÜRBURGRING [!]=====================\n\n")
@@ -1270,7 +1273,9 @@ programa {
 			escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao)
 			menu = falso
 			}
+			
 			}
+			
 			}
 
 		
