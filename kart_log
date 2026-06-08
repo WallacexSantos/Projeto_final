@@ -205,6 +205,7 @@ programa {
   		}
 
   	funcao cadastro_kart_locacao  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]) {
+  		
 		escreva("qual valor de locação deste Kart? ")
 		leia(locacao[i])
 		
@@ -416,6 +417,7 @@ programa {
 
 		
 	funcao kart_cadastrado(cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]){
+		
 		escreva("Kart modelo [",modelo[i],"] cor [", cores[i] ,"] de valor R$ ",locacao[i]," criado(a) com sucesso!\n")
 		cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel, manutencao)
 	}
@@ -455,6 +457,7 @@ programa {
 	}
 
 	funcao cadastrar_mais_karts(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[]){
+		
 			cadeia opcao
 
 			u.aguarde(1000)
@@ -482,14 +485,14 @@ programa {
 	 
 	}
 	
-	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[]){         
+	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[]){   //100% feita      
 			
 			     listar_karts(modelo,cores,locacao,i,cc, disponivel, manutencao)
                     retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao)
                     
 	}
 
-	funcao listar_karts(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[]){
+	funcao listar_karts(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[]){  
 		
 				inteiro karts
 				
@@ -530,7 +533,7 @@ programa {
 				escreva("\nNao ha nenhum kart cadastrado ate o momento")	                 
 				}
                     para(karts=1;karts<16;karts++){
-                    	se(modelo[karts] != " " e disponivel[karts] == falso){
+                    	se(modelo[karts] != " " e disponivel[karts] == falso e manutencao[karts] == falso){
                     	escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
                     	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])     
                     	}    
@@ -538,7 +541,7 @@ programa {
                     retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao)
     	}                              
 
-    	funcao listar_karts_em_manutencao(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel[], logico manutencao[]){
+    	funcao listar_karts_em_manutencao(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel[], logico manutencao[]){   //100% feita, falta testar apos dar o efeito de  disponivel[karts] == falso e manutencao[karts] == verdadeiro
     		
     		inteiro karts
     		
@@ -548,7 +551,7 @@ programa {
 		}
 		para(karts=1;karts<16;karts++){
           	se(modelo[karts] != " "){
-				se(disponivel[karts] == falso e manutencao[karts] == verdadeiro){
+				se(modelo[karts] != " " e disponivel[karts] == falso e manutencao[karts] == verdadeiro){
 					escreva("\nKart Numero: ",karts," Modelo: ", modelo[karts], " Potência ", cc[karts])  
                     	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts], " - Em manutenção")  
                     }
@@ -559,7 +562,10 @@ programa {
 
    	}
 	
-    	funcao atualizar_dados_do_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[]){
+    	funcao atualizar_dados_do_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[]){   //99% feita, falta so Quando o dado atualizado muda de “em manutenção” para
+	//usável, o valor da manutenção atual deve ser agregado ao valor anterior.
+
+
 	//A opção Atualizar dados do Kart deve permitir ao usuário atualizar um ou todos os
 	//dados do kart escolhido. Quando o dado atualizado muda de “em manutenção” para
 	//usável, o valor da manutenção atual deve ser agregado ao valor anterior.
@@ -667,7 +673,7 @@ programa {
    		
    	}
    
-    	funcao alugar_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]){
+    	funcao alugar_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]){ //99% da para dividir em funcao para diminuir o codigo
 	//A opção Alugar um kart deve possibilitar ao usuário escolher dentre a lista de karts
 	//disponíveis e marcar como locado, o valor de receita diária e lucro devem ser
 	//armazenados para a outra funcionalidade.
@@ -828,7 +834,7 @@ programa {
 		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao)
    	}  
   
-    	funcao devolver_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]){
+    	funcao devolver_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]){ //99% da para dividir em funcao para diminuir o codigo e testar mais
    	//A opção devolver um kart deve possibilitar ao usuário escolher dentre a lista de karts
 	//locados e marcar como disponível.
 
@@ -1002,7 +1008,7 @@ programa {
 		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao)
    	}
 
-    	funcao kart_que_gerou_mais_receita(){
+    	funcao kart_que_gerou_mais_receita(){ 
    	//A opção kart que mais gerou ganhos deve imprimir todas as informações sobre o kart
 	//mais locado durante a execução do programa.
    	}
@@ -1014,7 +1020,7 @@ programa {
  	//Considere que o lucro é 30% da receita gerada por um kart. 
    	}
    
-    	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]){ //
+    	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[]){ //50% feito
     	//Locação de circuito – O valor de locação do circuito deve previamente ser cadastrado.
 	//Caso o circuito seja locado, haverá o acréscimo de 70% do valor de sua locação à
 	//receita diária. 
@@ -1246,7 +1252,7 @@ programa {
 		}
    	}
    
-    	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[]){ //RNG
+    	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[]){ //RNG    //50% feito
     		inteiro valor, oficina ,karts, z=0 //Dia
 
     		//OBS!!! como iremos identificar qual carro é de quantas cc?
