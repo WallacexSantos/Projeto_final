@@ -1025,7 +1025,7 @@ programa {
 	//Caso o circuito seja locado, haverá o acréscimo de 70% do valor de sua locação à
 	//receita diária. 
 	cadeia opcao
-	logico menu = verdadeiro
+	logico menu = verdadeiro, pista_1 = verdadeiro, pista_2 = verdadeiro, pista_3  = verdadeiro
 
 	//Para wallace: Mano, falta arrumar para voltar para o menu abaixo e voltar para a pista anterior, essa de 
 	//voltar para anterior aparece a partir da segunda pista, vamos fazer assim, olha o comentario de baixo que é importante.
@@ -1035,6 +1035,7 @@ programa {
 	//for a mais rápida, ele vai ter mais ganhos.
 	
 		enquanto(menu == verdadeiro){
+			se(pista_1 == verdadeiro){
 		escreva("=======================[!] CIRCUITOS [!]======================\n")
 		escreva("=================[!] GIRBERTIS ALGORITMIS [!]=================\n")
 		u.aguarde(1000)
@@ -1081,15 +1082,24 @@ programa {
 		escreva("* - Preço de locação: R$500.00 \n")
 		u.aguarde(50)
 		escreva("==============================================================\n")
-		escreva("* - [ENTER] Próxima Pista\n* - [2] Menu\n")
+		escreva("* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Menu\n")
+			pista_3 = verdadeiro
 			leia(opcao)
-			se (opcao == "2"){
+			enquanto (opcao != "" e opcao != "1" e opcao != "2"){
+				escreva("opcao invalida ,digite uma opcao valida \n* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Menu\n")
+				leia(opcao)
+			}
+			se (opcao == "1"){
+			 	pista_2 = falso
+			 }
+			senao se (opcao == "2"){
 			escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao)
 			menu = falso
 			}
+		   }
 			
 		se(menu == verdadeiro){
-	
+		se(pista_2 == verdadeiro){
 			limpa()
 			escreva("=======================[!] CIRCUITOS [!]======================\n")
 			escreva("==================[!] ATIRATORIS BIZONHUS [!]=================\n\n")
@@ -1149,16 +1159,24 @@ programa {
 			escreva("* - Preço de locação: R$820.40 \n")
 			u.aguarde(50)
 			escreva("==============================================================\n")
-			escreva("* - [ENTER] Próxima Pista=\n* - [2] Menu\n")
+			escreva("* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Menu\n")
+				pista_1 = verdadeiro
 				leia(opcao)
-			 se (opcao == "2"){
+				enquanto (opcao != "" e opcao != "1" e opcao != "2"){
+					escreva("opcao invalida ,digite uma opcao valida \n* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Menu\n")
+					leia(opcao)
+			}
+			 se (opcao == "1"){
+			 	pista_3 = falso
+			 }
+			 senao se (opcao == "2"){
 			escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao)
 			menu = falso
 			}
-			
+			}
 			}
 			se(menu == verdadeiro){
-
+			se(pista_3 == verdadeiro){
 			limpa()
 			escreva("=======================[!] CIRCUITOS [!]======================\n")
 			escreva("======================[!] NÜRBURGRING [!]=====================\n\n")
@@ -1238,13 +1256,21 @@ programa {
 			escreva("* - Preço de locação: R$750.90 \n")
 			u.aguarde(50)
 			escreva("==============================================================\n")
-			escreva("* - [ENTER] Próxima Pista\n* - [2] Menu\n")
+			escreva("* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Menu\n")
+				pista_2 = verdadeiro
 				leia(opcao)
-			se (opcao == "2"){
+			enquanto (opcao != "" e opcao != "1" e opcao != "2"){
+				escreva("opcao invalida ,digite uma opcao valida \n* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Menu\n")
+				leia(opcao)
+			}
+			se (opcao == "1"){
+			 	pista_1 = falso
+			 }
+			senao se (opcao == "2"){
 			escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao)
 			menu = falso
 			}
-			
+			}
 			}
 
 		
