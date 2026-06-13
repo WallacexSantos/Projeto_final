@@ -1394,7 +1394,7 @@ programa {
     			valor = u.sorteia(0, 20)
     			
     		se(valor>=13){ //38,10% Chance de nenhum Kart entrar em manutenção!
-    			escreva("Passamos o", z=z+1, "º dia!")
+    			escreva("Passamos o dia!")
     			escreva("JACKPOT!")
     			escreva("Nenhum Kart foi para oficina!")
     			
@@ -1494,7 +1494,7 @@ programa {
    		inteiro dia = 1, mes = 1, ano = 1
       	inteiro diasNoMes = 0	
       	logico data_preenchida = falso
-      	inteiro lucro_do_dia = 0
+      	real lucro_do_dia = 0.0
       	real lucro_do_kart[16]
       	logico pista_alugada[3] = {falso,falso,falso}
    		
