@@ -31,7 +31,7 @@ programa {
  	}
 
 	
-	funcao escreva_menu(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo){
+	funcao escreva_menu(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){
 		cadeia opcao = " "
 		logico menu = verdadeiro
 		inteiro chamar_funcao = 1
@@ -95,7 +95,7 @@ programa {
 	  			}
 	 		}
 		}
-	hub(chamar_funcao, modelo, cores, locacao, i,cc, disponivel, manutencao, saldo)
+	hub(chamar_funcao, modelo, cores, locacao, i,cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida)
 	}
 
   	funcao pagina_1(){
@@ -125,40 +125,40 @@ programa {
 		escreva("========================================\n")
   	}
 
-	funcao hub(inteiro chamar_funcao,cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo){
+	funcao hub(inteiro chamar_funcao,cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){
 		
 		escolha(chamar_funcao)
 		{
 		     caso 1: 
-                  cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo)
-                  cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo)
-                  cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo)
-			   cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo)
-                  kart_cadastrado(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo)
+                  cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+                  cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+                  cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+			   cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+                  kart_cadastrado(modelo,cores, locacao, i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 		    	
 		     caso 2:
-		        listar_karts_disponiveis(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo)
+		        listar_karts_disponiveis(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 
                caso 3:
-		 	   listar_karts_locados(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo)
+		 	   listar_karts_locados(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 
 		     caso 4:
-		 	   listar_karts_em_manutencao(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo)
+		 	   listar_karts_em_manutencao(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 		
 		     caso 5:
-			   atualizar_dados_do_kart(modelo,cores,locacao,i,cc,disponivel,manutencao,saldo)
+			   atualizar_dados_do_kart(modelo,cores,locacao,i,cc,disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 		
 		     caso 6:
-			   alugar_um_kart(modelo,cores,locacao,i,cc,disponivel,manutencao,saldo)
+			   alugar_um_kart(modelo,cores,locacao,i,cc,disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 		        
 		     caso 7:
-		        devolver_um_kart(modelo,cores,locacao,i,cc,disponivel,manutencao,saldo)
+		        devolver_um_kart(modelo,cores,locacao,i,cc,disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 		
 		     caso 8:
@@ -170,15 +170,15 @@ programa {
 		     pare
 		
 		     caso 10:
-		        locacao_de_circurto(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo)
+		        locacao_de_circurto(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 		
 		     caso 11:
-		        atualizar_dia(modelo , cores, locacao, i, cc, disponivel,manutencao,saldo)
+		        atualizar_dia(modelo , cores, locacao, i, cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 
 			caso 12:
-		       verificar_saldo(modelo , cores, locacao, i, cc, disponivel,manutencao,saldo)
+		       verificar_saldo(modelo , cores, locacao, i, cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		     pare
 		     
 		     caso 13:
@@ -187,7 +187,7 @@ programa {
 		}
 	}
 
-  	funcao cadastro_kart_modelo (cadeia modelo[],cadeia cores[], real locacao[], inteiro &i,real cc[], logico disponivel[], logico manutencao[], real saldo) {
+  	funcao cadastro_kart_modelo (cadeia modelo[],cadeia cores[], real locacao[], inteiro &i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida) {
     		cadeia opcao
     		real locacaokart = 0.0
 		inteiro alternativa=0,j=0, l=0,opcao_=0
@@ -208,7 +208,7 @@ programa {
 		disponivel[i] = verdadeiro
   		}
 
-  	funcao cadastro_kart_locacao  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo) {
+  	funcao cadastro_kart_locacao  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida) {
   		
 		escreva("qual valor de locação deste Kart? ")
 			leia(locacao[i])
@@ -227,7 +227,7 @@ programa {
 
 		//No momento, eu[Mikael] to trabalhando nisso, vcs podem focar em outras nas outras opções.
   	}
-	funcao cadastro_kart_cc  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo) {
+	funcao cadastro_kart_cc  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida) {
 		cadeia opcao 
 		inteiro cilindradas = 0
 		
@@ -282,7 +282,7 @@ programa {
 		}
 }
   		
-  	funcao cadastro_kart_cor  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo) {
+  	funcao cadastro_kart_cor  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida) {
 		logico menu_cor = verdadeiro
 		cadeia opcao
 		inteiro cor=1
@@ -406,9 +406,9 @@ programa {
 			}
 	}
 		
-	funcao kart_cadastrado(cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo){
+	funcao kart_cadastrado(cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){
 		escreva("Kart modelo [",modelo[i],"], cor [", cores[i] ,"], Valor R$ ",locacao[i],", Potência de [",cc[i],"] criado com sucesso!\n")
-		cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+		cadastrar_mais_karts(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 	}
 
 	funcao menu_cores_pagina_1(){
@@ -442,7 +442,7 @@ programa {
 
 	}
 
-	funcao cadastrar_mais_karts(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[], real saldo){
+	funcao cadastrar_mais_karts(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){
 			cadeia opcao
 
 			u.aguarde(1000)
@@ -455,27 +455,27 @@ programa {
 			}
 									
 			 se(opcao=="1"){	
-				 cadastro_kart_modelo(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
-				 cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
-                  	 cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
-			   	 cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
-                  	 kart_cadastrado(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
+				 cadastro_kart_modelo(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+				 cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+                  	 cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+			   	 cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+                  	 kart_cadastrado(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
                   	 
 			 }senao se(opcao=="2"){
-				  escreva_menu( modelo , cores,locacao,i,cc, disponivel, manutencao,saldo)
+				  escreva_menu( modelo , cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 			 }
 			 		
 			 limpa()
 	}
 	
-	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[], real saldo){   //100% feita      
+	funcao listar_karts_disponiveis(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){   //100% feita      
 			
-			     listar_karts(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
-                    retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+			     listar_karts(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+                    retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
                     
 	}
 
-	funcao listar_karts(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[], real saldo){  
+	funcao listar_karts(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){  
 				inteiro karts
 				
 				se( modelo[1] == " "){
@@ -492,16 +492,16 @@ programa {
                     }
 	}
 	
-	funcao retornar_ao_menu(cadeia modelo[],cadeia cores[],real locacao [], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo){
+	funcao retornar_ao_menu(cadeia modelo[],cadeia cores[],real locacao [], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){
 		 cadeia enter
 		 
 		 escreva("\nDigite ENTER para retornar ao menu ")
            	leia(enter)
            	limpa()
-           escreva_menu( modelo , cores,locacao, i, cc, disponivel, manutencao,saldo)
+           escreva_menu( modelo , cores,locacao, i, cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 	}
 	
-   funcao listar_karts_locados(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[], real saldo){
+   funcao listar_karts_locados(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){
 		inteiro karts
      //A opção listar karts locados deve listar apenas os nomes dos karts que já estão
 	//locados por algum cliente qualquer. 
@@ -516,15 +516,15 @@ programa {
                     	escreva("\n Cor: ", cores[karts]," valor R$ ",locacao[karts])     
                     	}    
                     }
-                    retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+                    retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
     	}                              
 
-    	funcao listar_karts_em_manutencao(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel[], logico manutencao[], real saldo){   //100% feita, falta testar apos dar o efeito de  disponivel[karts] == falso e manutencao[karts] == verdadeiro
+    	funcao listar_karts_em_manutencao(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){   //100% feita, falta testar apos dar o efeito de  disponivel[karts] == falso e manutencao[karts] == verdadeiro
     		inteiro karts
     		
     		se( modelo[1] == " "){
 			escreva("\nNao ha nenhum kart cadastrado ate o momento")
-			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)	                 
+			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)	                 
 		}
 		para(karts=1;karts<16;karts++){
           	se(modelo[karts] != " "){
@@ -536,7 +536,7 @@ programa {
 		}
    	}
 	
-    	funcao atualizar_dados_do_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[], real &saldo){   //99% feita, falta so Quando o dado atualizado muda de “em manutenção” para
+    	funcao atualizar_dados_do_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[], real &saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){   //99% feita, falta so Quando o dado atualizado muda de “em manutenção” para
 		cadeia opcao
 		inteiro karts, atualizar
 		
@@ -550,7 +550,7 @@ programa {
 		
 		se( modelo[1] == " "){
 			escreva("\nNao ha nenhum kart cadastrado ate o momento")
-				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)	                 
+				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)	                 
 		}
 		escreva("\nQual kart voce deseja atualizar os dados? ")	
 		para(i=1;i<16;i++){
@@ -573,34 +573,34 @@ programa {
 					leia(opcao)
 			}
 				se(opcao =="1"){
-					cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
+					cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
       			}
       			senao se(opcao == "2"){
-					cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
+					cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
       			}
       			senao se(opcao == "3"){
-					cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
+					cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
       			}
       			senao se(opcao == "4"){
-					cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
+					cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
       			}
       			senao se(opcao == "5"){
-					atualizar_status(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
+					atualizar_status(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
       			}
       			senao{
-					cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
-					cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
-					cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
-					cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo)
-					atualizar_status(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo) 
+					cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+					cadastro_kart_locacao(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+					cadastro_kart_cc(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+					cadastro_kart_cor(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
+					atualizar_status(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida) 
       			}
       			
 			escreva("\nDados atualizados com sucesso ")
-               	retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+               	retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 	
    	}
 
-   	funcao atualizar_status(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[], real &saldo){
+   	funcao atualizar_status(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[], real &saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){
 			cadeia opcao
 			
 			escreva("\nStatus atual: ")
@@ -615,11 +615,11 @@ programa {
          			    		se(opcao == "1"){
          			    			disponivel[i] = falso
          			    			escreva("\nDados atualizados com sucesso ")
-               					retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+               					retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
          			    		}
          			    		senao{
          			    			escreva("Status nao foi atualizado ")
-         			    				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+         			    				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
          			    		}
          			    	}
          			    	senao{
@@ -633,16 +633,16 @@ programa {
          			    		se(opcao == "1"){
          			    			disponivel[i] = verdadeiro
          			    			escreva("\nDados atualizados com sucesso ")
-               					retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+               					retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
          			    		}
          			    		senao{
          			    			escreva("Status nao foi atualizado ")
-         			    			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+         			    			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
          			    		}
          			    	}
    	}
    
-   	funcao alugar_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real &saldo){ 
+   	funcao alugar_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real &saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){ 
 		cadeia opcao = " "
 		logico menu = verdadeiro
     		
@@ -653,10 +653,10 @@ programa {
 		
 		se( modelo[1] == " "){
 			escreva("\nNao ha nenhum kart cadastrado ate o momento")
-				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)	                 
+				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)	                 
 		}
 		
-		listar_karts(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+		listar_karts(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 		
 		enquanto(menu == verdadeiro){
 			escreva("\nQual Kart Deseja Alugar? (Digite o número do Kart)")
@@ -821,10 +821,10 @@ programa {
 				escreva("Digite a opcao corretamente! ")
 			}
 		}
-		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
    	}  
   
-    	funcao devolver_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo){ 
+    	funcao devolver_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){ 
 	    	cadeia opcao = " "
 		logico menu = verdadeiro
 		inteiro karts
@@ -835,7 +835,7 @@ programa {
 
 		se( modelo[1] == " "){
 			escreva("\nNao ha nenhum kart cadastrado ate o momento")
-			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)	                 
+			retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)	                 
 		}
 
                para(karts=1;karts<16;karts++){
@@ -994,7 +994,7 @@ programa {
 				escreva("Digite a opcao corretamente para a devolução! ")
 			}
 		}
-		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
    	}
 
     	funcao kart_que_gerou_mais_receita(){ 
@@ -1010,7 +1010,7 @@ programa {
    	}
    
     
-    	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real &saldo){ //50% feito
+    	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real &saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){ //50% feito
     	//Locação de circuito – O valor de locação do circuito deve previamente ser cadastrado.
 	//Caso o circuito seja locado, haverá o acréscimo de 70% do valor de sua locação à
 	//receita diária. 
@@ -1084,10 +1084,10 @@ programa {
 			 }
 			senao se (opcao == "2"){
 				saldo = saldo + 350
-				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 			}
 			senao se (opcao == "3"){
-				escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao, saldo)
+				escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida)
 				menu = falso
 			}
 		   }
@@ -1165,10 +1165,10 @@ programa {
 			 }
 			 senao se (opcao == "2"){
 				saldo = saldo + 574
-				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 			}
 			senao se (opcao == "3"){
-				escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo)
+				escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 				menu = falso
 			}
 			}
@@ -1266,10 +1266,10 @@ programa {
 			 }
 			senao se (opcao == "2"){
 				saldo = saldo + 525
-				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo)
+				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 			}
 			senao se (opcao == "3"){
-				escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo)
+				escreva_menu(modelo,cores,locacao,i,cc, disponivel,manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida)
 				menu = falso
 			}
 			}
@@ -1280,9 +1280,76 @@ programa {
 		}
    	}
    
-    	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo){ //RNG    //50% feito
-    		inteiro valor, oficina ,karts, z=0 //Dia
+    	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro &dia, inteiro &mes, inteiro &ano, inteiro &diasNoMes, logico &data_preenchida){ //RNG    //50% feito
+    		
+    		inteiro valor, oficina ,karts, z=0 
+      	cadeia opcao
 
+		se( data_preenchida == falso){
+	    		 escreva("Digite o dia: ")
+        	 	 leia(dia)
+
+         		 escreva("Digite o mês: ")
+         		 leia(mes)
+
+      		 escreva("Digite o ano: ")
+         		 leia(ano)
+         		
+         		data_preenchida = verdadeiro 
+		}
+ 		
+        escolha (mes)
+        {
+            caso 1:
+            caso 3:
+            caso 5:
+            caso 7:
+            caso 8:
+            caso 10:
+            caso 12:
+                diasNoMes = 31
+                pare
+
+            caso 4:
+            caso 6:
+            caso 9:
+            caso 11:
+                diasNoMes = 30
+                pare
+
+            caso 2:
+                se ((ano % 4 == 0 e ano % 100 != 0) ou (ano % 400 == 0))
+                {
+                    diasNoMes = 29
+                }
+                senao
+                {
+                    diasNoMes = 28
+                }
+                pare
+        }
+
+        escreva("\nDeseja avancar o dia? [1] para sim, 2 para nao ")
+        leia(opcao)
+        enquanto(opcao != "1" e opcao != "2"){
+        	escreva("\nOpcao invalida, digite [1] para sim, 2 para nao ")
+        	leia(opcao)
+        }
+	   se(opcao == "1"){
+	   	dia = dia + 1
+        se (dia > diasNoMes)
+        {
+            dia = 1
+            mes = mes + 1
+
+            se (mes > 12)
+            {
+                mes = 1
+                ano = ano + 1
+            }
+        }
+
+        escreva("\nNova data: ", dia, "/", mes, "/", ano)
     		//OBS!!! como iremos identificar qual carro é de quantas cc?
     		escreva("Atualizando dia...")
     			valor = u.sorteia(0, 20)
@@ -1342,9 +1409,14 @@ programa {
     				escreva("===============================\n")
     				u.aguarde(3000)
     		}
+    		retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida)
    	}
+   	 senao se(opcao == "2"){
+    		retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida)
+    	}
+    	}
 
-    funcao verificar_saldo(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo){
+    funcao verificar_saldo(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida){
 
 	       cadeia opcao
 	       
@@ -1356,7 +1428,7 @@ programa {
         		leia (opcao)
        		limpa()
        		se(opcao == "1"){
-       			escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo)    
+       			escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida)    
        		}
        		escreva("===============================\n")
         		escreva(saldo,"\t[ENTER] Ocultar saldo\n")
@@ -1365,7 +1437,7 @@ programa {
         		leia (opcao)
        		limpa()
 			se(opcao == "1"){
-       			escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo)    
+       			escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida)    
        		}
 		  } 
 	 }
@@ -1380,8 +1452,11 @@ programa {
    		inteiro i = 0
    		logico disponivel[16]
    		logico manutencao[16]
+   		inteiro dia = 1, mes = 1, ano = 1
+      	inteiro diasNoMes = 0	
+      	logico data_preenchida = falso
    		
    		logo()
-		escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo)	
+		escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida)	
 	}
 }
