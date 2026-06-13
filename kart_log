@@ -1345,7 +1345,7 @@ programa {
    	}
 
     funcao verificar_saldo(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo){
-	    	//aqui tem arrumar unas partes principalmente as opcoes essa parte aqui ja ta voltando pro menu principal falta adicionar muito mais coisa//
+	    	//aqui tem arrumar unas partes principalmente as opcoes essa parte aqui ja ta voltando pro menu principal falta adicionar muito mais coisa//20% pronta
 	       cadeia opcao
 	        escreva( "deseja ocultar o saldo?\n")
 	        leia (opcao)
