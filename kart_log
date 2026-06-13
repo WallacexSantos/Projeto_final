@@ -422,7 +422,7 @@ programa {
 			escreva("[5] - Amarelo\n")
 			escreva("[6] - Laranja\n")
 			escreva("[7] - Cinza\n")
-			escreva("[8] - |>>> Aperte Enter para Próxima Página >>>\n")
+			escreva("[ENTER]|>>> Aperte Enter para Próxima Página >>>\n")
 			escreva("====================\n")	
 			
 	}
@@ -437,7 +437,7 @@ programa {
 			escreva("[12] - Roxo\n")
 			escreva("[13] - Bege\n")
 			escreva("[14] - Preto\n")
-			escreva("[15] - Aperte Enter para retornar\n")
+			escreva("[ENTER]<<|Aperte Enter para retornar <<|\n")
 			escreva("====================\n")
 
 	}
@@ -1345,11 +1345,22 @@ programa {
    	}
 
     funcao verificar_saldo(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo){
-    	
-    	escreva(saldo)
-    	
-    }
-   
+	    	//aqui tem arrumar unas partes principalmente as opcoes essa parte aqui ja ta voltando pro menu principal falta adicionar muito mais coisa//
+	       cadeia opcao
+	        escreva( "deseja ocultar o saldo?\n")
+	        leia (opcao)
+	        enquanto(verdadeiro){
+	        escreva("*")
+	        leia (opcao)
+	        limpa()
+	        escreva("digite enter para retorna ao menu\n")
+	        leia (opcao)
+	        
+	        logo()
+	        escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo)
+	         }      
+	 }
+	
     funcao inicio(){
     		cadeia modelo[16] = {" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "}
    		cadeia cores[16]
@@ -1362,7 +1373,6 @@ programa {
    		logico manutencao[16]
    		
    		logo()
-		escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo)
-		
+		escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo)	
 	}
 }
