@@ -1345,20 +1345,29 @@ programa {
    	}
 
     funcao verificar_saldo(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo){
-	    	//aqui tem arrumar unas partes principalmente as opcoes essa parte aqui ja ta voltando pro menu principal falta adicionar muito mais coisa//20% pronta
+
 	       cadeia opcao
-	        escreva( "deseja ocultar o saldo?\n")
-	        leia (opcao)
-	        enquanto(verdadeiro){
-	        escreva("*")
-	        leia (opcao)
-	        limpa()
-	        escreva("digite enter para retorna ao menu\n")
-	        leia (opcao)
-	        
-	        logo()
-	        escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo)
-	         }      
+	       
+		  enquanto(verdadeiro){
+		  	escreva("===============================\n")
+       	 	escreva("*****","\t[ENTER] Mostrar saldo\n")
+       	 	escreva("\n[1] Para retornar ao menu\n")
+       	 	escreva("===============================\n")
+        		leia (opcao)
+       		limpa()
+       		se(opcao == "1"){
+       			escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo)    
+       		}
+       		escreva("===============================\n")
+        		escreva(saldo,"\t[ENTER] Ocultar saldo\n")
+        		escreva("\n[1] Para retornar ao menu\n")
+        		escreva("===============================\n")
+        		leia (opcao)
+       		limpa()
+			se(opcao == "1"){
+       			escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo)    
+       		}
+		  } 
 	 }
 	
     funcao inicio(){
