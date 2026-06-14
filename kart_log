@@ -162,11 +162,11 @@ programa {
 		     pare
 		
 		     caso 8:
-		        kart_que_gerou_mais_receita()
+		        kart_que_gerou_mais_receita(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada)
 		     pare
 		
 		     caso 9:
-		        receita_e_lucro_por_dia()
+		        receita_e_lucro_por_dia(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada)
 		     pare
 		
 		     caso 10:
@@ -1012,16 +1012,18 @@ programa {
 		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada)
    	}
 
-    	funcao kart_que_gerou_mais_receita(){ 
+    	funcao kart_que_gerou_mais_receita(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[]){ 
    	//A opção kart que mais gerou ganhos deve imprimir todas as informações sobre o kart
 	//mais locado durante a execução do programa.
    	}
 
-    	funcao receita_e_lucro_por_dia(){
-   	//A opção “Receita e lucro do dia, considerando karts locados” deve mostrar na tela o
-	//total de receita que será gerado naquele dia caso os karts locados permaneçam nesse
-	//status. Alterar um kart para locado ou devolvido impactará nesse resultado.
- 	//Considere que o lucro é 30% da receita gerada por um kart. 
+    	funcao receita_e_lucro_por_dia(cadeia modelo[],cadeia cores[], real locacao[], inteiro &i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[]){
+    		
+		escreva("\n==============================================================\n")
+ 		escreva("o lucro presumido para o dia ",dia,"/",mes,"/",ano," e ", lucro_do_dia)
+		escreva("\n==============================================================\n")
+ 		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada)
+
    	}
    
     
