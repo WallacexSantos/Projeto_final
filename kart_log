@@ -1386,6 +1386,9 @@ programa {
         }
 
         escreva("\nNova data: ", dia, "/", mes, "/", ano)
+        pista_alugada[0] = falso
+        pista_alugada[1] = falso
+        pista_alugada[2] = falso
     		//OBS!!! como iremos identificar qual carro é de quantas cc?
     		escreva("Atualizando dia...")
     			valor = u.sorteia(0, 20)
