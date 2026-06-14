@@ -1,14 +1,3 @@
-//Vi que a gente ainda tá preso no início do projeto, então vou dar um guia pra gente avançar.
-	
-	//Ao atualizar o dia, devemos utilizar a estratégia de RNG (random number generator), basicamente é a chance
-	//de algo acontecer, ao atualizar o dia, os karts locados mais baratos devem ter mais chances para parar 
-	//na oficina, e um limite menor nos ganhos diários, os mais potentes devem ter um limite maior de ganhos e RNG
-	//menor de parar na oficina.
-
-	//Não é na ordem do menu que temos que fazer as coisas, pois a opcão de ver karts locados [3] só funciona se já
-	//tivessemos feito a de alugar um kart [6]. Não foquem em fazer função ficar bonita ou tentar diminuir código, pois gasta muito tempo e nõo
-	//evolui o projeto, já que teriamos que entregar no dia 17 e pode ser que demorariamos muito nas outras opções.
-
 programa {
 	inclua biblioteca Util --> u 
 	
@@ -182,7 +171,7 @@ programa {
 		     pare
 		     
 		     caso 13:
-		        //funcao
+		        
 		     pare
 		}
 	}
@@ -192,7 +181,6 @@ programa {
     		real locacaokart = 0.0
 		inteiro alternativa=0,j=0, l=0,opcao_=0
 
-		//Karts cadastrados irão aparecer aqui.
 		escreva("====Garagem dos Karts====")
 		para(j=1;j<16;j++){
 			se(modelo[j] != " "){
@@ -217,15 +205,6 @@ programa {
 			leia(locacao[i])
 		}
 		
-		//criar menu para escolher cc
-		//Vale lembrar que o valor da locação não deve ser fixo, pois não faz sentido ter uma locação
-		//barata em um carro de alta potência.
-
-		//Vou explicar por qual motivo eu coloquei 270cc não recomendado, de 80cc a 125cc sõa karts que merecem ter
-		//uma locação mais custo benefício, mas pode ser chatos na manutenção (maior chance de quebra), o 270cc deve
-		//ser mais caro na locação, pois pode dar maiores lucros nos ganhos e menos manutenção (Qualidade)
-
-		//No momento, eu[Mikael] to trabalhando nisso, vcs podem focar em outras nas outras opções.
   	}
 	funcao cadastro_kart_cc  (cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[]) {
 		cadeia opcao 
@@ -503,10 +482,7 @@ programa {
 	
    funcao listar_karts_locados(cadeia modelo[],cadeia cores[],real locacao [], inteiro i, real cc[], logico disponivel [], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[]){
 		inteiro karts
-     //A opção listar karts locados deve listar apenas os nomes dos karts que já estão
-	//locados por algum cliente qualquer. 
-	//ainda e preciso saber diferencias se o kart esta locado ou nao
-				
+ 			
 				se( modelo[1] == " "){
 				escreva("\nNao ha nenhum kart cadastrado ate o momento")	                 
 				}
@@ -539,15 +515,7 @@ programa {
     	funcao atualizar_dados_do_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[], real &saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[]){   //99% feita, falta so Quando o dado atualizado muda de “em manutenção” para
 		cadeia opcao
 		inteiro karts, atualizar
-		
-	//usável, o valor da manutenção atual deve ser agregado ao valor anterior.
-
-	//A opção Atualizar dados do Kart deve permitir ao usuário atualizar um ou todos os
-	//dados do kart escolhido. Quando o dado atualizado muda de “em manutenção” para
-	//usável, o valor da manutenção atual deve ser agregado ao valor anterior.
-    		 	
-	//aqui podemos fazer uma mescla da opcao de listar karts e a opcao de cadastrar karts, primeiro vamos listar os karts e pedir para o usuario escolher qual ele quer atualizar e em seguida vamos chamar novamente as opcoes de cadastrar kart
-		
+			
 		se( modelo[1] == " "){
 			escreva("\nNao ha nenhum kart cadastrado ate o momento")
 				retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada)
@@ -645,11 +613,6 @@ programa {
    	funcao alugar_um_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real &saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real &lucro_do_dia, logico pista_alugada[]){ 
 		cadeia opcao = " "
 		logico menu = verdadeiro
-    		
-	    	//99% da para dividir em funcao para diminuir o codigo
-		//A opção Alugar um kart deve possibilitar ao usuário escolher dentre a lista de karts
-		//disponíveis e marcar como locado, o valor de receita diária e lucro devem ser
-		//armazenados para a outra funcionalidade.
 		
 		se( modelo[1] == " "){
 			escreva("\nNao ha nenhum kart cadastrado ate o momento")
@@ -844,9 +807,6 @@ programa {
 		logico menu = verdadeiro
 		inteiro karts
 		
-	    	//99% da para dividir em funcao para diminuir o codigo e testar mais
-	   	//A opção devolver um kart deve possibilitar ao usuário escolher dentre a lista de karts
-		//locados e marcar como disponível.
 
 		se( modelo[1] == " "){
 			escreva("\nNao ha nenhum kart cadastrado ate o momento")
@@ -1013,8 +973,7 @@ programa {
    	}
 
     	funcao kart_que_gerou_mais_receita(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[]){ 
-   	//A opção kart que mais gerou ganhos deve imprimir todas as informações sobre o kart
-	//mais locado durante a execução do programa.
+   	
    	}
 
     	funcao receita_e_lucro_por_dia(cadeia modelo[],cadeia cores[], real locacao[], inteiro &i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[]){
@@ -1028,18 +987,9 @@ programa {
    
     
     	funcao locacao_de_circurto(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real &saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real &lucro_do_dia, logico pista_alugada[]){ //50% feito
-    	//Locação de circuito – O valor de locação do circuito deve previamente ser cadastrado.
-	//Caso o circuito seja locado, haverá o acréscimo de 70% do valor de sua locação à
-	//receita diária. 
+    	
 	cadeia opcao
 	logico menu = verdadeiro, pista_1 = verdadeiro, pista_2 = verdadeiro, pista_3  = verdadeiro
-
-	//Para wallace: Mano, falta arrumar para voltar para o menu abaixo e voltar para a pista anterior, essa de 
-	//voltar para anterior aparece a partir da segunda pista, vamos fazer assim, olha o comentario de baixo que é importante.
-	
-	//Vamos usar os quilometros da pista para fazer um cálculo com os ganhos, vamos usar RNG, então pode dar 3 porcentagens nos ganhos, 
-	//uma baixa, uma mais ou menos e uma boa, mas dependendo do tempo, sim, podemos colocar um cronometro aleatorio, se a volta de algum kart
-	//for a mais rápida, ele vai ter mais ganhos.
 	
 		enquanto(menu == verdadeiro){
 			se(pista_1 == verdadeiro){
@@ -1391,20 +1341,18 @@ programa {
         pista_alugada[0] = falso
         pista_alugada[1] = falso
         pista_alugada[2] = falso
-    		//OBS!!! como iremos identificar qual carro é de quantas cc?
+    		
     		escreva("Atualizando dia...")
     			valor = u.sorteia(0, 20)
     			
-    		se(valor>=13){ //38,10% Chance de nenhum Kart entrar em manutenção!
+    		se(valor>=13){ 
     			escreva("Passamos o", z=z+1, "º dia!")
     			escreva("JACKPOT!")
     			escreva("Nenhum Kart foi para oficina!")
     			
-    		}senao se (valor<13 e valor>6){ //AQUI É O COMUM [28,57%]
-    			//Karts de 125cc para baixo devem entrar em manutenção!
+    		}senao se (valor<13 e valor>6){
     			oficina = u.sorteia(1,15)
-			//Abaixo colocamos 3 chances, de ser 1, 4, ou todos os carros de 125cc para baixo entrar em manutenção
-			//vai depender de quantos de 125cc para baixo foram cadastrados.
+			
     			se(oficina<3){
     				escreva("1 Kart somente entrou em manutenção!")
 				para(karts=1;karts<16;karts++){
@@ -1412,7 +1360,7 @@ programa {
 						se(disponivel[karts] == verdadeiro e cc[karts] == 80.0){
 							disponivel[karts] = falso
 							karts = 16
-							// COMO AQUI É SOMENTE 1 KART A IR PRA MANUTENÇÃO, ASSIM Q ENTRASSE NESSA OPCAO, ENCERRAVA O PARA. 
+							
                     		}
 					}    
 				}
@@ -1420,22 +1368,19 @@ programa {
     			}senao se(oficina<7 e oficina>=3){
     				escreva("X karts entraram em manutenção!\n")
     				escreva("=========[!] Lista [!]=========\n")
-				//AQUI COLOCAMOS OS KARTS 125CC PARA BAIXO SORTEADOS E PASSAMOS O STATUS
-				//DOS KARTS QUE FORAM SORTEADOS PARA (MANUTENÇÃO)
     				escreva("===============================\n")
     				u.aguarde(3000)
     				
     			}senao se(oficina<=15 e oficina>=9){
     				escreva("X karts entraram em manutenção!\n")
     				escreva("=========[!] Lista [!]=========\n")
-				//AQUI COLOCAMOS OS KARTS 160CC e até 125CC PARA BAIXO SORTEADOS E PASSAMOS O STATUS
-				//DOS KARTS QUE FORAM SORTEADOS PARA (MANUTENÇÃO)
+				
 				escreva("125cc 'só de teste esse escreva' \n")
     				escreva("===============================\n")
     				u.aguarde(3000)
     			}
     			
-    		}senao se(valor<=6 e valor>=3){ //19,05% Aqui já é incomum
+    		}senao se(valor<=6 e valor>=3){ 
     				escreva("X karts entraram em manutenção!\n")
     				escreva("=========[!] Lista [!]=========\n")
 				escreva("200cc 'só de teste esse escreva' \n")
@@ -1443,7 +1388,7 @@ programa {
     				u.aguarde(3000)
     		}
     		
-    		senao se(valor<=2){ //Aqui a chance é de [14,29%], Manutencao mais rara para 270cc pra cima
+    		senao se(valor<=2){
     			escreva("X karts entraram em manutenção!\n")
     				escreva("=========[!] Lista [!]=========\n")
 				escreva("270 'só de teste esse escreva' \n")
