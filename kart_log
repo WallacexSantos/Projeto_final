@@ -509,6 +509,7 @@ programa {
                     }
 			}    
 		}
+		retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
    	}
 	
     	funcao atualizar_dados_do_kart(cadeia modelo[],cadeia cores[],real locacao[], inteiro i,real cc[], logico disponivel [], logico manutencao[], real &saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[],real kart_que_lucrou_mais ){   //99% feita, falta so Quando o dado atualizado muda de “em manutenção” para
@@ -540,6 +541,7 @@ programa {
 					leia(opcao)
 			}
 				se(opcao =="1"){
+					i = i-1
 					cadastro_kart_modelo(modelo,cores, locacao, i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
       			}
       			senao se(opcao == "2"){
@@ -972,32 +974,21 @@ programa {
    	}
 
     	funcao kart_que_gerou_mais_receita(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[], real kart_que_lucrou_mais ){ 
-            inteiro j , maior_indice = 0
-            real  kart_que_lucrou_mais_2 ,  kart_que_lucra_mais[16]
-		           
-		   	      
-		   	       para(j = 0; j < 16; j++)
-		                                     {
-		    kart_que_lucra_mais[j] = locacao[j] * 0.3
+		inteiro j , maior_indice = 0, kart
+		real  kart_que_lucra_mais[16]
 		
-		    se(kart_que_lucra_mais[j] > maior_indice)
-		         {
-		        maior_indice = kart_que_lucra_mais[j]
-		        maior_indice = j
-		    
-		            }
-		            }
-		            escreva("Maior lucro: ", maior_indice, "\n")
-		             escreva("Modelo: ", modelo[maior_indice] ,"\n")
-				      escreva("Cor: ", cores[maior_indice], "\n")
-		                escreva(" cc:",  cc[maior_indice], "\n")   
-
-		                                     
-        
-   	       retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais) 
-   	         	
-   	         
-   	
+		para(j = 0; j < 16; j++){
+			kart_que_lucra_mais[j] = locacao[j] * 0.3
+			se(kart_que_lucra_mais[j] > maior_indice){
+				maior_indice = kart_que_lucra_mais[j]
+				kart = j
+			}
+		}
+		escreva("Maior lucro: ", maior_indice, "\n")
+		escreva("Modelo: ", modelo[kart] ,"\n")
+		escreva("Cor: ", cores[kart], "\n")
+		escreva(" cc:",  cc[kart], "\n")   
+		retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)       
    	}
 
     	funcao receita_e_lucro_por_dia(cadeia modelo[],cadeia cores[], real locacao[], inteiro &i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[],real kart_que_lucrou_mais){
@@ -1292,7 +1283,7 @@ programa {
 		}
    	}
    
-    	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro &dia, inteiro &mes, inteiro &ano, inteiro &diasNoMes, logico &data_preenchida,real lucro_do_dia, logico pista_alugada[] , real kart_que_lucrou_mais){ //RNG    //50% feito
+    	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro &dia, inteiro &mes, inteiro &ano, inteiro &diasNoMes, logico &data_preenchida,real lucro_do_dia, logico pista_alugada[],real kart_que_lucrou_mais){ //RNG    //50% feito
     		
     		inteiro valor, oficina ,karts, z=0 
       	cadeia opcao
@@ -1366,64 +1357,41 @@ programa {
         pista_alugada[1] = falso
         pista_alugada[2] = falso
     		
-    		escreva("Atualizando dia...")
-    			valor = u.sorteia(0, 20)
-    			
-    		se(valor>=13){ 
-    			escreva("Passamos o", z=z+1, "º dia!")
-    			escreva("JACKPOT!")
-    			escreva("Nenhum Kart foi para oficina!")
-    			
-    		}senao se (valor<13 e valor>6){
-    			oficina = u.sorteia(1,15)
-			
-    			se(oficina<3){
-    				escreva("1 Kart somente entrou em manutenção!")
-				para(karts=1;karts<16;karts++){
-          			se(modelo[karts] != " "){
-						se(disponivel[karts] == verdadeiro e cc[karts] == 80.0){
-							disponivel[karts] = falso
-							karts = 16
-							
-                    		}
-					}    
-				}
-    				
-    			}senao se(oficina<7 e oficina>=3){
-    				escreva("X karts entraram em manutenção!\n")
-    				escreva("=========[!] Lista [!]=========\n")
-    				escreva("===============================\n")
-    				u.aguarde(3000)
-    				
-    			}senao se(oficina<=15 e oficina>=9){
-    				escreva("X karts entraram em manutenção!\n")
-    				escreva("=========[!] Lista [!]=========\n")
-				
-				escreva("125cc 'só de teste esse escreva' \n")
-    				escreva("===============================\n")
-    				u.aguarde(3000)
-    			}
-    			
-    		}senao se(valor<=6 e valor>=3){ 
-    				escreva("X karts entraram em manutenção!\n")
-    				escreva("=========[!] Lista [!]=========\n")
-				escreva("200cc 'só de teste esse escreva' \n")
-    				escreva("===============================\n")
-    				u.aguarde(3000)
+    		valor = u.sorteia(1, 2)
+    		se(valor == 1){
+    			valor = u.sorteia(1, 15)
+    			se(modelo[1] != " " e modelo[valor] != " "){
+    				escreva("\nO kart numero ", valor," entrou em manutencao ")
+    				disponivel[valor] = falso
+    				manutencao[valor] = verdadeiro
+    				escreva("\nDeseja ver mais informacoes sobre ele? ")
+    				escreva("\n[1] Sim")
+				escreva("\n[2] Nao")
+				leia(opcao)
+			enquanto(opcao != "1" e opcao != "2"){
+        			escreva("\nOpcao invalida, digite [1] para sim, 2 para nao ")
+        			leia(opcao)
+      	  }
+      	  se(opcao == "1"){
+      	  	escreva("\nKart Numero: ",valor," Modelo: ", modelo[valor], " Potência ", cc[valor])  
+               escreva("\n Cor: ", cores[valor]," valor R$ ",locacao[valor],"\n")
+               retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
+      	  }
+      	  senao{
+      	  	retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
+      	  }
     		}
-    		
-    		senao se(valor<=2){
-    			escreva("X karts entraram em manutenção!\n")
-    				escreva("=========[!] Lista [!]=========\n")
-				escreva("270 'só de teste esse escreva' \n")
-    				escreva("===============================\n")
-    				u.aguarde(3000)
+    		senao{
+    			escreva("\nNenhum kart entrou em manutencao ")
+    			retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
     		}
     		retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
    	}
    	 senao se(opcao == "2"){
     		retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
     	}
+		 }
+		 retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
     	}
 
     funcao verificar_saldo(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[],real kart_que_lucrou_mais){
