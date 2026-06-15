@@ -974,8 +974,8 @@ programa {
    	}
 
     	funcao kart_que_gerou_mais_receita(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[], real kart_que_lucrou_mais ){ 
-		inteiro j , maior_indice = 0, kart = 0
-		real  kart_que_lucra_mais[16]
+		inteiro j , kart = 0
+		real  kart_que_lucra_mais[16], maior_indice = 0.0
 		
 		para(j = 0; j < 16; j++){
 			kart_que_lucra_mais[j] = locacao[j] * 0.3
@@ -1285,7 +1285,7 @@ programa {
    
     	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro &dia, inteiro &mes, inteiro &ano, inteiro &diasNoMes, logico &data_preenchida,real lucro_do_dia, logico pista_alugada[],real kart_que_lucrou_mais){ //RNG    //50% feito
     		
-    		inteiro valor, oficina ,karts,i
+    		inteiro valor, oficina ,karts
       	cadeia opcao
 
 		se( data_preenchida == falso){
