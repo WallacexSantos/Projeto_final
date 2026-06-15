@@ -573,15 +573,16 @@ programa {
 			cadeia opcao
 			
 			escreva("\nStatus atual: ")
-         			    	se(disponivel[i] == verdadeiro){
+         			    	se(manutencao[i] == falso){
 						escreva("disponivel")
-         			    		escreva("\nDeseja trocar o status para indisponivel? [1] sim [2] nao ")
+         			    		escreva("\nDeseja trocar o status para em Manutenção? [1] sim [2] nao ")
          			    			leia(opcao)
          			    		enquanto(opcao != "1" e opcao != "2"){
          			    			escreva("Opcao invalida, digite [1] pata sim para [2] nao ")
          			    				leia(opcao)
          			    		}
          			    		se(opcao == "1"){
+         			    			manutencao[i] = verdadeiro
          			    			disponivel[i] = falso
          			    			escreva("\nDados atualizados com sucesso ")
                					retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
@@ -592,7 +593,7 @@ programa {
          			    		}
          			    	}
          			    	senao{
-         			    		escreva("indisponivel")
+         			    		escreva("Em manutencao")
          			    		escreva("\nDeseja trocar o status para disponivel? [1] sim [2] nao ")
          			    			leia(opcao)
          			    		enquanto(opcao != "1" e opcao != "2"){
@@ -600,6 +601,7 @@ programa {
          			    				leia(opcao)
          			    		}
          			    		se(opcao == "1"){
+         			    			manutencao[i] = falso
          			    			disponivel[i] = verdadeiro
          			    			escreva("\nDados atualizados com sucesso ")
                					retornar_ao_menu(modelo,cores,locacao,i,cc, disponivel, manutencao,saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada,kart_que_lucrou_mais)
