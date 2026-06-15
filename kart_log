@@ -974,7 +974,7 @@ programa {
    	}
 
     	funcao kart_que_gerou_mais_receita(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[], real kart_que_lucrou_mais ){ 
-		inteiro j , maior_indice = 0, kart
+		inteiro j , maior_indice = 0, kart = 0
 		real  kart_que_lucra_mais[16]
 		
 		para(j = 0; j < 16; j++){
@@ -1285,7 +1285,7 @@ programa {
    
     	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro &dia, inteiro &mes, inteiro &ano, inteiro &diasNoMes, logico &data_preenchida,real lucro_do_dia, logico pista_alugada[],real kart_que_lucrou_mais){ //RNG    //50% feito
     		
-    		inteiro valor, oficina ,karts, z=0 
+    		inteiro valor, oficina ,karts,i
       	cadeia opcao
 
 		se( data_preenchida == falso){
@@ -1356,12 +1356,18 @@ programa {
         pista_alugada[0] = falso
         pista_alugada[1] = falso
         pista_alugada[2] = falso
+
+        para(i = 1;i<16;i++){
+        	se(disponivel[i] == falso e manutencao[i] == falso){
+        		escreva("\n[Aviso] o kart numero ",i," esta locado, e necessario devolve-lo ou renovar a locação: \n")
+        	}
+        }
     		
     		valor = u.sorteia(1, 2)
     		se(valor == 1){
     			valor = u.sorteia(1, 15)
     			se(modelo[1] != " " e modelo[valor] != " "){
-    				escreva("\nO kart numero ", valor," entrou em manutencao ")
+    				escreva("\nO kart numero ", valor," entrou em manutenção ")
     				disponivel[valor] = falso
     				manutencao[valor] = verdadeiro
     				escreva("\nDeseja ver mais informacoes sobre ele? ")
