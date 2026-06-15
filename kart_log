@@ -1343,16 +1343,16 @@ programa {
         pista_alugada[2] = falso
     		
     		valor = u.sorteia(1, 2)
-    		se(modelo[1] != " "){
     		se(valor == 1){
     			valor = u.sorteia(1, 15)
-    			escreva("\nO kart numero ", valor," entrou em manutencao ")
-    			disponivel[valor] = falso
-    			manutencao[valor] = verdadeiro
-    			escreva("\nDeseja ver mais informacoes sobre ele? ")
-    			escreva("\n[1] Sim")
-			escreva("\n[2] Nao")
-			leia(opcao)
+    			se(modelo[1] != " " e modelo[valor] != " "){
+    				escreva("\nO kart numero ", valor," entrou em manutencao ")
+    				disponivel[valor] = falso
+    				manutencao[valor] = verdadeiro
+    				escreva("\nDeseja ver mais informacoes sobre ele? ")
+    				escreva("\n[1] Sim")
+				escreva("\n[2] Nao")
+				leia(opcao)
 			enquanto(opcao != "1" e opcao != "2"){
         			escreva("\nOpcao invalida, digite [1] para sim, 2 para nao ")
         			leia(opcao)
@@ -1376,6 +1376,7 @@ programa {
     		retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada)
     	}
 		 }
+		 retornar_ao_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida,lucro_do_dia, pista_alugada)
     	}
 
     funcao verificar_saldo(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[]){
