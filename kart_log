@@ -1313,7 +1313,7 @@ programa {
    
     	funcao atualizar_dia(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro &dia, inteiro &mes, inteiro &ano, inteiro &diasNoMes, logico &data_preenchida,real lucro_do_dia, logico pista_alugada[], real lucrodokart[]){ //RNG    //50% feito
     		
-    		inteiro valor, oficina ,karts, sorteio
+    		inteiro valor, oficina ,karts, sorteio, contagem
       	cadeia opcao
 
 		se( data_preenchida == falso){
@@ -1393,9 +1393,9 @@ programa {
         pista_alugada[1] = falso
         pista_alugada[2] = falso
 
-        para(i = 1;i<16;i++){
-        	se(disponivel[i] == falso e manutencao[i] == falso e modelo[i] != " "){
-        		escreva("\n[Aviso] o kart numero ",i," esta locado, e necessario devolve-lo ou renovar a locação: \n")
+        para(contagem = 1;contagem<16;contagem++){
+        	se(disponivel[contagem] == falso e manutencao[contagem] == falso e modelo[contagem] != " "){
+        		escreva("\n[Aviso] o kart numero ",contagem," esta locado, e necessario devolve-lo ou renovar a locação: \n")
         	}
         }
     		
