@@ -3,19 +3,19 @@ programa {
 	
 	funcao logo()
  	{
- 		u.aguarde(0)
+ 		u.aguarde(500)
  		escreva("\n██    ██╗ █████╗░██████╗░████████╗   ██╗    ███████╗ ███████╗ ")
- 		u.aguarde(0)
+ 		u.aguarde(500)
  		escreva("\n██  ██╔═╝██╔══██╗██╔══██╗╚══██╔══╝   ██║    ██  ║██║ ██       ")
- 		u.aguarde(0)
+ 		u.aguarde(500)
  		escreva("\n████║    ███████║██████╔╝░░░██║      ██║    ██  ║██║ ██ ████║")
- 		u.aguarde(0)
+ 		u.aguarde(500)
  		escreva("\n██  ██╚═╗██╔══██║██╔══██╗   ██║      ██╚══╗ ██  ║██║ ██  ║██║")
- 		u.aguarde(0)
+ 		u.aguarde(500)
  		escreva("\n██    ██║██║░░██║██║░░██║   ██║      █████║ ███████║ ███████║")
- 		u.aguarde(0)
+ 		u.aguarde(500)
  		escreva("\n╚╝    ╚═╝╚═╝░░╚═╝╚═╝░░╚═╝   ╚═╝      ╚════╝ ╚══════╝ ╚══════╝")
- 		u.aguarde(0)
+ 		u.aguarde(500)
  		limpa()
  	}
 
@@ -89,7 +89,7 @@ programa {
 
   	funcao pagina_1(){
   		
-		escreva("========================================\n")
+		escreva("=================================================\n")
 		escreva("* [1]  - Cadastrar um Kart\n")
 		escreva("* [2]  - Listar Karts disponíveis\n")
 		escreva("* [3]  - Listar Karts locados\n")
@@ -98,11 +98,11 @@ programa {
 		escreva("* [6]  - Alugar um Kart\n")
 	     escreva("* [7]  - Sair do Programa\n")
 		escreva("*[ENTER]<<| Aperte Enter para Página Anterior <<|\n")
-		escreva("========================================\n")
+		escreva("=================================================\n")
   	}
   	funcao pagina_2(){
 
- 	  	escreva("========================================\n")
+ 	  	escreva("=================================================\n")
 		escreva("* [1]  - Devolver um Kart\n")
 		escreva("* [2]  - Kart que mais gerou ganhos\n")
 		escreva("* [3]  - Receita e lucro do dia, (considerando Karts locados)\n")
@@ -111,7 +111,7 @@ programa {
 		escreva("* [6]  - Verificar saldo\n")
 		escreva("* [7]  - Sair do programa\n")
 		escreva("*[ENTER]<<| Aperte Enter para Página Anterior <<|\n")
-		escreva("========================================\n")
+		escreva("=================================================\n")
   	}
 
 	funcao hub(inteiro chamar_funcao,cadeia modelo[],cadeia cores[], real locacao[], inteiro i,real cc[], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida, real lucro_do_dia, logico pista_alugada[],real lucrodokart[]){
@@ -425,7 +425,7 @@ programa {
 			cadeia opcao
 
 			u.aguarde(1000)
-			escreva("[1] - Cadastrar mais Karts\n[2] - Retornar ao menu")
+			escreva("[1] - Cadastrar mais Karts\n[2] - Retornar ao menu\n")
 				leia(opcao)
 
 			enquanto(opcao!="1" e opcao!="2"){
@@ -1415,7 +1415,7 @@ programa {
     				lucro_do_dia = lucro_do_dia + sorteio
     				escreva("\nDeseja ver mais informacoes sobre ele? ")
     				escreva("\n[1] Sim")
-				escreva("\n[2] Nao")
+				escreva("\n[2] Nao\n")
 				leia(opcao)
 				enquanto(opcao != "1" e opcao != "2"){
         				escreva("\nOpcao invalida, digite [1] para sim, 2 para nao ")
