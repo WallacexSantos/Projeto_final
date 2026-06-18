@@ -1,1 +1,8 @@
-https://www.canva.com/design/DAHLpR84Sn8/Fdr5C9yxLRyFcc_3y62jhw/edit
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/ba9ad3b6-fdf6-43c4-ab67-e08e1c47b159" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/80ac2794-2bf5-45da-aae7-273bf66242b4" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/f2b85133-abf8-4df7-bd70-690303c15a5a" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/9b46e56c-4f85-41c0-9f55-94271a21e1d9" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/f3a3e70f-118c-46e0-b9b4-1b2e513140f1" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/ebda4738-c30d-4321-aa4d-37eaa155cb55" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/bd1bf382-b5a5-4fd1-a073-eb5bb3d5ab4c" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/a0683a60-1e54-4c77-b322-33bf93c5a278" />
