@@ -1004,7 +1004,7 @@ programa {
 
     	funcao kart_que_gerou_mais_receita(cadeia modelo[] ,cadeia cores[],real locacao[], inteiro i,real cc [], logico disponivel[], logico manutencao[], real saldo, inteiro dia, inteiro mes, inteiro ano, inteiro diasNoMes, logico data_preenchida,real lucro_do_dia, logico pista_alugada[], real lucrodokart[] ){ 
 		inteiro j , kart = 0
-		real  kart_que_lucra_mais[16], maior_indice = 0.0
+		real maior_indice = 0.0
 		
 		para(j=1;j<16;j++){
 			se(lucrodokart[j] > maior_indice){
@@ -1485,7 +1485,6 @@ programa {
 	 	logico data_preenchida = falso
 	 	real lucro_do_dia = 0.0
 	 	logico pista_alugada[3] = {falso,falso,falso}
-		real kart_que_lucrou_mais=0.0
 		logo()
 		escreva_menu( modelo , cores, locacao, i, cc, disponivel, manutencao, saldo, dia, mes, ano, diasNoMes, data_preenchida, lucro_do_dia, pista_alugada,lucrodokart )	
 	}
