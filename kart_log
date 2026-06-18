@@ -1173,7 +1173,7 @@ programa {
 			escreva("* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Locar pista \n* - [3] Menu\n")
 				pista_1 = verdadeiro
 				leia(opcao)
-				enquanto (opcao != "" e opcao != "1" e opcao != "2" e opcao != "2"){
+				enquanto (opcao != "" e opcao != "1" e opcao != "2" e opcao != "3"){
 					escreva("opcao invalida ,digite uma opcao valida \n* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Menu\n")
 					leia(opcao)
 			}
@@ -1281,7 +1281,7 @@ programa {
 			escreva("* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Locar pista \n* - [3] Menu\n")
 				pista_2 = verdadeiro
 				leia(opcao)
-			enquanto (opcao != "" e opcao != "1" e opcao != "2" e opcao != "2"){
+			enquanto (opcao != "" e opcao != "1" e opcao != "2" e opcao != "3"){
 				escreva("opcao invalida ,digite uma opcao valida \n* - [ENTER] Próxima Pista\n* - [1] Voltar pagina\n* - [2] Menu\n")
 				leia(opcao)
 			}
